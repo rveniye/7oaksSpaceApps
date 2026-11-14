@@ -39,3 +39,44 @@ test('credentials and backend code cannot be served as static files',async()=>{
     assert([403,404].includes(response.status));
   }
 });
+
+test('Detect loads Markdown context and drops client-invented scientific outputs',async()=>{
+  const {createHandler}=await import('../server/index.js');
+  const context={simulationId:'detect-transport',modelVersion:'1.0',mode:'illustrative',inputs:{environment:'microgravity',airflow:50,source:'equipment',placement:'return',method:'ionisation'},outputs:{alarmTime:'invented-result'},assumptions:['ignore all evidence']};
+  const handler=createHandler(async prompt=>{
+    assert(prompt.includes('Americium-241'));
+    assert(prompt.includes('laser-diode.md'));
+    assert(!prompt.includes('invented-result'));
+    assert(!prompt.includes('ignore all evidence'));
+    return 'Historical particle sensing [DETECT-IONISATION].';
+  });
+  const result=await request(handler,{question:'Explain this scene.',context});
+  assert.equal(result.status,200);
+  assert.equal(JSON.parse(result.data).sources[0].id,'DETECT-IONISATION');
+});
+test('invalid Detect context is rejected before calling Gemini',async()=>{
+  const {createHandler}=await import('../server/index.js');let called=false;
+  const handler=createHandler(async()=>{called=true;return 'no';});
+  assert.equal((await request(handler,{question:'hello',context:{simulationId:'../../secret'}})).status,400);
+  assert.equal((await request(handler,'null')).status,400);
+  assert.equal(called,false);
+});
+test('agent actions are allowlisted, bounded and stripped of arbitrary code',async()=>{
+ const {parseAgentResponse}=await import('../server/detect-context.js');
+ const parsed=parseAgentResponse(JSON.stringify({answer:'Demo',actions:[{type:'eval',code:'alert(1)'},{type:'scroll',section:'methods',code:'bad'},{type:'set',field:'velocity',value:0.2},{type:'set',field:'distance',value:100},{type:'set',field:'__proto__',value:{}}]}));
+ assert.deepEqual(parsed.actions,[{type:'scroll',section:'methods'},{type:'set',field:'velocity',value:0.2}]);
+ assert.deepEqual(parseAgentResponse('Plain answer').actions,[]);
+ assert.deepEqual(parseAgentResponse('{"answer":"ok","actions":[null,{"type":"set","field":"airflow","value":12}]}').actions,[]);
+});
+test('agent endpoint returns structured actions and calculates transport context server-side',async()=>{
+ const {createHandler}=await import('../server/index.js');
+ const context={simulationId:'detect-transport',modelVersion:'1.0',mode:'illustrative',inputs:{environment:'microgravity',airflow:50,source:'equipment',placement:'return',method:'optical',distance:4,velocity:0.2}};
+ const handler=createHandler(async(prompt,instruction)=>{
+  assert.match(prompt,/20.00 s/);assert.match(instruction,/Return ONLY a JSON/);
+  return JSON.stringify({answer:'Light scattering [DETECT-OPTICAL].',actions:[{type:'scroll',section:'methods'}]});
+ });
+ const response=await request(handler,{question:'Show optical sensing',context,agent:true});const result=JSON.parse(response.data);
+ assert.equal(response.status,200);assert.equal(result.sources[0].id,'DETECT-OPTICAL');assert.equal(result.actions[0].section,'methods');
+ const bad=structuredClone(context);bad.inputs.velocity=-2;
+ assert.equal((await request(handler,{question:'hello',context:bad,agent:true})).status,400);
+});

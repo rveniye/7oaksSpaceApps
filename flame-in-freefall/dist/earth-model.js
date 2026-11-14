@@ -1,0 +1,14 @@
+(() => {
+ const defaults={stage:0,enhance:true,formation:'high',oxidation:'low',engine:0};
+ function clean(value={}){const s={...defaults};for(const f of ['formation','oxidation'])if(['low','medium','high'].includes(value?.[f]))s[f]=value[f];for(const [f,max] of [['stage',3],['engine',2]])if(Number.isInteger(value?.[f])&&value[f]>=0&&value[f]<=max)s[f]=value[f];if(typeof value?.enhance==='boolean')s.enhance=value.enhance;return s;}
+ // Authored visual tokens, NOT a soot kinetics or emissions model.
+ function soot(formation,oxidation){const formed={low:8,medium:20,high:36}[formation]??8;const oxidised=Math.round(formed*({low:0.15,medium:0.5,high:0.85}[oxidation]??0.5));return {formed,oxidised,escaped:formed-oxidised};}
+ const stages=[
+  {name:'Before ignition',title:'Fuel is present. Burning has not started.',description:'Each diagram begins with a liquid fuel droplet surrounded by oxygen-containing air. The droplet releases fuel vapour, but a self-sustaining combustion reaction has not started. The centre represents liquid fuel; the space around it is where a flame can develop.'},
+  {name:'Hot ignition',title:'Both droplets begin on the hot-burning route.',description:'A heated igniter starts the reaction between fuel vapour and oxygen. Combustion releases heat, helping the liquid fuel continue to vaporise and feed the flame. The glowing shell represents the region where the gases react, rather than the liquid droplet itself. Both examples are now burning with hot flames.'},
+  {name:'Visible extinction',title:'The hot flame fades on the FLEX pathway.',description:'In the right-hand example, heat loss makes the hot flame unsustainable. Its visible glow disappears, while the left-hand reference continues burning. The dashed orange outline marks the former hot-flame region. These are two selected outcomes, not a claim that identical experimental conditions produce different results.'},
+  {name:'Cool reaction',title:'A faint reaction can continue.',description:'FLEX showed that, under suitable conditions, lower-temperature reactions can continue consuming fuel after the visible hot flame disappears. This is cool-flame combustion. It releases less heat and emits much less visible light than the hot flame. The right-hand ring is enhanced to make the reaction zone understandable. The transition depends on the fuel and surrounding conditions; it does not follow every flame extinction.'}
+ ];
+ function snapshot(s){return {page:'earth-applications',version:1,mode:'illustrative',inputs:clean(s),visualTokens:soot(s.formation,s.oxidation),limitations:['No experimental run data or combustion solver.','Visual token counts are authored, not measured particles or emissions.','No calculated temperature, ignition threshold, burn duration or safe condition.']};}
+ globalThis.EarthModel={defaults,clean,soot,stages,snapshot};
+})();

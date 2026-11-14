@@ -65,3 +65,41 @@ one concurrent request; CORS is not authentication and this throttle is not a
 distributed quota. Neither the model backend nor Pages has been deployed here.
 
 `npm test` runs local renderer and backend contract tests without cloud calls.
+
+## Detect workspace
+
+Open `/detect.html` through the Detect card on the landing page. It includes a
+conceptual smoke transport animation, qualitative controls, four sensing-principle
+panels, a SAME hover/focus/tap preview and an evidence-based Gemini panel. The
+animation is not CFD or a validated detector response model and reports no alarm
+times, concentrations or detection probabilities. Settings persist under the
+versioned localStorage key `7oaks:detect:v1`; storage failure is non-fatal.
+
+On “Explain this scene”, the browser sends a fresh, versioned snapshot rather than
+scraping the page or trusting old storage. `/api/ask` validates the snapshot and
+loads the selected detector note plus the optical transport background directly
+from `context/detect/*.md`. Only allowlisted files can be read. Research remains
+on the server; API credentials never go to the browser. Changes to the Markdown
+are read on the next question without rebuilding. Notes remain drafts and their
+limitations are included in the prompt. No request is sent when controls change.
+
+If the Node server was running before these backend changes, restart it. For
+GitHub Pages, the visuals work independently, but the Gemini panel needs a hosted
+backend URL in `dist/api-config.js` and the appropriate `ALLOWED_ORIGIN` on the
+backend. Keep the `context/` folder in the backend deployment. Never publish ADC
+files. The source lookup does not verify that every AI claim is entailed by a
+citation; users should inspect the referenced evidence.
+
+### Floating Detect assistant
+
+The sparkle button opens the Gemini assistant. It sends the current scenario and the team's detection notes to the existing `/api/ask` backend. Restart `npm start` after backend changes; direct `file://` previews support local interactions but need the HTTP backend for Gemini.
+
+Commands work without an API call: `/go workspace`, `/go methods`, `/go calculations`, `/go evidence`, and `/set FIELD VALUE`. Examples: `/set method gas`, `/set airflow 65`, `/set distance 4`, `/set velocity 0.2`. Natural-language requests can return the same allowlisted actions through Gemini. Both server and browser validate actions; stale actions are skipped if the user changes the scene while waiting. No generated code is executed.
+
+The calculator's path length (0.5–10 m) and air speed (0–0.5 m/s) are hypothetical inputs for `t = L/u`, separate from the dimensionless fan slider. The moving marker follows that ideal travel duration. Zero velocity produces no finite advective estimate. This is not CFD, an alarm-time prediction or a calibrated sensor simulation.
+
+### Earth applications workspace
+
+`dist/earth.html` is written from `context/applications/applications.md`, with NASA references linked beside the explanations. It includes a four-stage FLEX-inspired hot/cool droplet illustration, a separate formation-versus-oxidation soot demonstration, an interactive HCCI piston diagram, and material-screening / firefighter-equipment diagrams. No experimental run data or chemical kinetics solver is included. Soot numbers are authored tracer tokens, not measured particles or mass emissions.
+
+Settings are allowlisted and saved under `7oaks:earth:v1`. The saved snapshot identifies its illustrative scope; it is not currently sent to the Detect-only Gemini endpoint. The page works as static HTML on GitHub Pages and from local files. Stage stepping works with reduced motion enabled; continuous animation pauses in hidden tabs. `npm test` covers input normalization, token accounting and the interactive controls.

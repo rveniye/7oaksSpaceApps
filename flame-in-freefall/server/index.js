@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url';
 import { resolve, extname, sep } from 'node:path';
 import { generate, publicError } from './gemini.js';
 import { evidence, researchPrompt, instruction } from './evidence.js';
+import { validateContext, detectPrompt, agentInstruction, parseAgentResponse } from './detect-context.js';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
-const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.svg':'image/svg+xml' };
+const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png' };
 export function createHandler(answer = generate) {
   let busy = false, requests = [];
   return async (req, res) => {
@@ -29,14 +30,21 @@ export function createHandler(answer = generate) {
         for await (const chunk of req) { body+=chunk; if(Buffer.byteLength(body)>8192)return send(413,{error:'Question is too large.'}); }
         body=JSON.parse(body);
       } catch { return send(400,{error:'Invalid JSON.'}); }
+      if(!body||typeof body!=='object'||Array.isArray(body))return send(400,{error:'Expected a JSON object.'});
       if(typeof body.question!=='string'||!body.question.trim()||body.question.length>2000)return send(400,{error:'Enter a question between 1 and 2,000 characters.'});
+      let context;
+      if(body.context!==undefined){try{context=validateContext(body.context);}catch(error){return send(400,{error:error.message});}}
       requests=requests.filter(t=>Date.now()-t<60000);
       if(busy||requests.length>=6)return send(429,{error:'Please wait before asking another question.'});
       busy=true;requests.push(Date.now());
       try {
-        const text=await answer(researchPrompt(body.question.trim()),instruction);
-        const cited=evidence.filter(item=>text.includes(`[${item.id}]`));
-        return send(200,{answer:text,sources:cited,scope:'Curated starter summaries; no numerical run data.'});
+        const bundle=context?await detectPrompt(body.question.trim(),context,body.agent===true):{prompt:researchPrompt(body.question.trim()),sources:evidence};
+        const isAgent=Boolean(context&&body.agent===true);
+        const raw=await answer(bundle.prompt+(isAgent?'\nCurrent ideal transport estimate: '+(context.inputs.velocity>0?(context.inputs.distance/context.inputs.velocity).toFixed(2)+' s':'No finite advective arrival at zero speed'):''),instruction+(isAgent?'\n'+agentInstruction():''));
+        const parsed=isAgent?parseAgentResponse(raw):{answer:raw,actions:[]};
+        const text=parsed.answer;
+        const cited=bundle.sources.filter(item=>text.includes(`[${item.id}]`));
+        return send(200,{answer:text,actions:parsed.actions,sources:cited,scope:context?'Draft detection notes and illustrative scenario; not a validated prediction.':'Curated starter summaries; no numerical run data.'});
       } catch(error) { return send(502,{error:publicError(error)}); }
       finally { busy=false; }
     }
