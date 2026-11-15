@@ -85,3 +85,24 @@ test('complete combustion lessons belong to Understand while Applications retain
   assert(!applications.includes('href="understand.html#flames"'));
   assert(!applications.includes('href="understand.html#soot"'));
 });
+
+test('relevance scores preserve ties and full-catalogue ranks when searching', async () => {
+  await import('../dist/investigations.js');
+  const { findRecords } = globalThis.Investigations;
+  const overall = findRecords();
+  assert.deepEqual(overall.slice(0,2).map(r=>[r.id,r.rank,r.score]), [['bass',1,4],['saffire',1,4]]);
+  assert.equal(overall[2].rank,3);
+  assert.equal(findRecords('Saffire')[0].rank,1);
+  const detection=findRecords('','detect');
+  assert.equal(detection[0].id,'same');
+  assert.equal(detection[0].score,3);
+  assert.equal(detection[1].id,'daft');
+  assert.equal(detection[1].score,1);
+  assert.equal(findRecords('','suppress')[0].id,'flex');
+  for(const row of overall){
+    assert.equal(row.score,row.breakdown.reduce((sum,item)=>sum+item.points,0));
+    assert.equal(row.maxScore,9);
+    assert(row.score>=0 && row.score<=row.maxScore);
+  }
+  assert.deepEqual(findRecords('','unknown').map(r=>r.id),overall.map(r=>r.id));
+});

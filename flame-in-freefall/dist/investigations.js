@@ -16,13 +16,24 @@
   ];
   for(const record of records){const p=globalThis.SourceProvenance?.records[record.id];record.provenance=p;record.sourceStatus=p?.status||'Source check pending';record.checkedOn=p?.checkedOn||'';record.sourceUrls=p?.sources.map(s=>s.url).join(' | ')||'';record.measurementsImported=false;}
   const areas = {all:'All research',understand:'Understand',prevent:'Prevent',detect:'Detect',suppress:'Suppress',applications:'Applications'};
-  function findRecords(query='', area='all') {
-    const terms=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-    return records.filter(r=>terms.every(term=>Object.values(r).join(' ').toLowerCase().includes(term)))
-      .map(r=>({...r, relevance:area==='all'?'Unranked':r.area===area?'Direct':r.related.includes(area)?'Related':'Background'}))
-      .sort((a,b)=>({Direct:0,Related:1,Background:2,Unranked:0}[a.relevance]-{Direct:0,Related:1,Background:2,Unranked:0}[b.relevance])||a.name.localeCompare(b.name));
+  const safetyAreas=['prevent','detect','suppress'];
+  function rankRecord(record, area='all') {
+    const selected=area==='all'?safetyAreas:[area];
+    const breakdown=selected.map(key=>({area:key,label:areas[key],points:record.area===key?3:record.related.includes(key)?1:0}));
+    const score=breakdown.reduce((total,item)=>total+item.points,0);
+    return {...record,score,maxScore:selected.length*3,breakdown,
+      relevance:area==='all'?'Combined':score===3?'Direct':score===1?'Related':'Background',
+      rankingReason:breakdown.map(item=>`${item.label}: ${item.points} (${item.points===3?'direct':item.points===1?'related':'background'})`).join(' · ')};
   }
-  globalThis.Investigations={records,findRecords};
+  function findRecords(query='', area='all') {
+    if(!Object.hasOwn(areas,area))area='all';
+    const ranked=records.map(r=>rankRecord(r,area)).sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
+    let position=0,previous=null;
+    ranked.forEach((r,index)=>{if(r.score!==previous)position=index+1;r.rank=position;r.tied=ranked.filter(other=>other.score===r.score).length>1;previous=r.score;});
+    const terms=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    return ranked.filter(r=>terms.every(term=>[r.name,r.area,r.fuel,r.hardware,r.objective,r.variables,r.measurements,r.reason,...r.related].join(' ').toLowerCase().includes(term)));
+  }
+  globalThis.Investigations={records,findRecords,rankRecord};
   if(typeof document==='undefined')return;
   const root=document.getElementById('investigation-results');if(!root)return;
   const $=id=>document.getElementById(id),selected=new Set();
@@ -39,13 +50,13 @@
   }
   function render(){
     const area=$('investigation-area').value,items=findRecords($('investigation-search').value,area);root.replaceChildren();
-    $('investigation-count').textContent=`${items.length} investigation families · ${area==='all'?'alphabetical order':`ordered by relevance to ${areas[area].toLowerCase()}`}`;
+    $('investigation-count').textContent=`${items.length} investigation families · ${area==='all'?'ranked for prevention, detection and suppression':`ranked for ${areas[area].toLowerCase()}`}`;
     if(!items.length)root.append(el('p','No matching investigations. Try a fuel, hardware name, or experiment acronym.','empty-state'));
     for(const r of items){
       const card=el('article',undefined,'investigation-record'),heading=el('div',undefined,'record-heading');
-      const title=el('h3',r.name),badge=el('span',area==='all'?areas[r.area]:`${r.relevance} relevance`,'relevance-badge');heading.append(title,badge);card.append(heading,el('p',r.objective));
+      const title=el('h3',r.name),badge=el('span',`Rank ${r.rank}${r.tied?' (tie)':''} · ${r.score}/${r.maxScore} relevance points`,'relevance-badge');heading.append(title,badge);card.append(heading,el('p',r.objective));
       const dl=el('dl');for(const [label,value] of [['Fuel / sample',r.fuel],['Hardware',r.hardware]]){const d=el('div');d.append(el('dt',label),el('dd',value));dl.append(d);}card.append(dl);
-      card.append(el('p',r.reason,'record-reason'));
+      card.append(el('p',r.reason,'record-reason'),el('p',r.rankingReason,'record-reason'));
       const detail=el('details');detail.append(el('summary','Conditions, measurements and references'));
       for(const [label,value] of [['Conditions',r.variables],['Measurements',r.measurements]]){detail.append(el('h4',label),el('p',value));}if(r.provenance){detail.append(el('h4','Research references'));for(const source of r.provenance.sources){const link=el('a',source.title+' ↗');link.href=source.url;link.target='_blank';link.rel='noopener noreferrer';const p=el('p');p.append(link);detail.append(p);}}card.append(detail);
       const footer=el('div',undefined,'record-actions'),label=el('label'),checkbox=el('input');checkbox.type='checkbox';checkbox.id=`compare-${r.id}`;checkbox.checked=selected.has(r.id);checkbox.disabled=selected.size===3&&!checkbox.checked;checkbox.setAttribute('aria-label',`Compare ${r.name}`);checkbox.addEventListener('change',()=>{const scrollTop=root.scrollTop;checkbox.checked?selected.add(r.id):selected.delete(r.id);render();comparison();root.scrollTop=scrollTop;document.getElementById(`compare-${r.id}`)?.focus({preventScroll:true});});label.append(checkbox,document.createTextNode(' Compare'));
@@ -55,7 +66,7 @@
   $('investigation-search').addEventListener('input',render);$('investigation-area').addEventListener('change',render);
   $('clear-comparison').addEventListener('click',()=>{selected.clear();render();comparison();});
   $('export-investigations').addEventListener('click',()=>{
-    const fields=['name','area','relevance','objective','fuel','hardware','variables','measurements','gap','sourceStatus','checkedOn','sourceUrls','measurementsImported'];
+    const fields=['name','area','rank','score','maxScore','rankingReason','relevance','objective','fuel','hardware','variables','measurements','gap','sourceStatus','checkedOn','sourceUrls','measurementsImported'];
     const quote=v=>'"'+String(v??'').replaceAll('"','""')+'"';
     const rows=findRecords($('investigation-search').value,$('investigation-area').value);
     const csv=[fields,...rows.map(r=>fields.map(f=>r[f]))].map(row=>row.map(quote).join(',')).join('\r\n');
