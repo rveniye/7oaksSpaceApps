@@ -1,3 +1,5 @@
-// Public URL only; never credentials. Empty uses the local same-origin backend.
-// GitHub Pages needs a deployed backend URL, e.g. https://your-service.run.app.
-window.SEVENOAKS_API_BASE = '';
+// Public service URL only. Google credentials remain on the backend.
+// Local development continues to use its same-origin Node server.
+window.SEVENOAKS_API_BASE = location.hostname === '7oaksspaceapps.vercel.app'
+  ? 'https://sevenoaks-assistant-722619489579.europe-west2.run.app'
+  : '';
