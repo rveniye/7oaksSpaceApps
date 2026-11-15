@@ -51,5 +51,5 @@ test('workspace routes, source locators and guided controls are explicitly allow
  const {parseAgentResponse}=await import('../server/detect-context.js');const steps=[{text:'Open the data model.',actions:[{type:'navigate',page:'lab'}]},{text:'Select the atmosphere and size.',actions:[{type:'set',field:'lab-cohort',value:'he25'},{type:'set',field:'lab-diameter',value:3.5}]},{text:'Inspect the error check.',actions:[{type:'scroll',section:'validation'}]}];
  assert.equal(parseAgentResponse(JSON.stringify({steps}),{page:'understand'}).actions.length,4);
  assert.throws(()=>parseAgentResponse(JSON.stringify({steps:[{text:'x',actions:[{type:'set',field:'lab-diameter',value:8}]}]}),{page:'lab'}));
- const html=fs.readFileSync(path.join(root,'dist/lab.html'),'utf8');for(const id of ['data','model','validation','equipment','provenance','lab-cohort','lab-diameter','lab-metric','lab-filter','equipment-focus','lab-reset'])assert(html.includes(`id="${id}"`));
+ const html=fs.readFileSync(path.join(root,'dist/lab.html'),'utf8');assert(html.indexOf('src="lab.js"')<html.indexOf('src="assistant-chat.js"'),'Bind model controls before resuming navigation actions');for(const id of ['data','model','validation','equipment','provenance','lab-cohort','lab-diameter','lab-metric','lab-filter','equipment-focus','lab-reset'])assert(html.includes(`id="${id}"`));
 });

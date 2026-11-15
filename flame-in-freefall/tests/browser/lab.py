@@ -1,5 +1,5 @@
 """Functional workspace, export and guided-action checks. Run with TEST_BASE_URL."""
-import os,json,csv
+import os,json,csv,time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 BASE=os.environ.get('TEST_BASE_URL','http://localhost:4176')
@@ -45,6 +45,7 @@ with sync_playwright() as p:
  assert sent[-1]['labInputs']=={'cohort':'he30','diameter':3.5,'metric':'burn_time_s','filter':'excluded','equipmentFocus':'suppress'}
  page.unroute('**/api/ask')
  # A navigation from an established page must resume controls and narrative exactly once.
+ page.route('**/lab.js',lambda route:(time.sleep(.6),route.continue_()))
  page.goto(BASE+'/understand.html')
  page.evaluate('''()=>{const t=AssistantChat.begin('Open the data workspace');void AssistantChat.complete({steps:[{text:'Opening the workspace.',actions:[{type:'navigate',page:'lab'}]},{text:'Choose 25% oxygen.',actions:[{type:'set',field:'lab-cohort',value:'he25'}]},{text:'Select 3 mm.',actions:[{type:'set',field:'lab-diameter',value:3}]},{text:'WORKSPACE WALKTHROUGH COMPLETE','actions':[]}]},t,{apply:true});}''')
  page.wait_for_url('**/lab.html');page.wait_for_function("document.getElementById('lab-size').value==='3' && !AssistantChat.running")
