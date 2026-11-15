@@ -16,5 +16,5 @@ test('all pages load the source register before their source renderer and catalo
  }
 });
 test('unsupported detector specifications do not reappear in the comparison',()=>{
- const js=fs.readFileSync(path.join(root,'dist/detect-ranking.js'),'utf8');assert.doesNotMatch(js,/15\+ years|1\.5 W|9 W|few months|0\.4–0\.7/);assert.match(js,/unverified|Draft rating/);
+ const js=fs.readFileSync(path.join(root,'dist/detect-ranking.js'),'utf8');assert.doesNotMatch(js,/15\+ years|1\.5 W|9 W|few months|0\.4–0\.7/);assert.match(js,/Preliminary assessments/);
 });

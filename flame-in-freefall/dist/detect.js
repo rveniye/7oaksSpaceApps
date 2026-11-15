@@ -111,10 +111,6 @@ function animate(time){if(paused||!visible||document.hidden){raf=0;return;}if(la
 function resume(){cancelAnimationFrame(raf);last=0;draw();if(!paused&&visible&&!document.hidden)raf=requestAnimationFrame(animate);$('journey-marker').style.animationPlayState=paused||document.hidden||state.velocity===0?'paused':'running';$('pause').textContent=paused?'▶ PLAY':'Ⅱ PAUSE';$('pause').setAttribute('aria-pressed',String(paused));}
 $('pause').addEventListener('click',()=>{paused=!paused;resume();});reduced.addEventListener('change',()=>{paused=reduced.matches;resume();});document.addEventListener('visibilitychange',resume);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;resume();}).observe(canvas);new ResizeObserver(resize).observe(canvas);
 
-const trigger=document.querySelector('.experiment-trigger'),popover=$('same-preview'),ref=document.querySelector('.experiment-ref');
-let previewTimer;
-function preview(open){clearTimeout(previewTimer);popover.hidden=!open;trigger.setAttribute('aria-expanded',String(open));}
-ref.addEventListener('mouseenter',()=>preview(true));ref.addEventListener('mouseleave',()=>{previewTimer=setTimeout(()=>{if(!ref.contains(document.activeElement))preview(false);},120);});trigger.addEventListener('focus',()=>preview(true));trigger.addEventListener('click',()=>preview(true));ref.addEventListener('focusout',event=>{if(!ref.contains(event.relatedTarget))preview(false);});document.addEventListener('keydown',event=>{if(event.key==='Escape')preview(false);});document.addEventListener('click',event=>{if(!ref.contains(event.target))preview(false);});
 function updateCalculation(){
  for(const field of ['distance','velocity'])$(field).value=state[field];
  $('distance-label').textContent=`${state.distance.toFixed(1)} m`;$('velocity-label').textContent=`${state.velocity.toFixed(2)} m/s`;
@@ -163,7 +159,6 @@ $('explain-form').addEventListener('submit',async event=>{
    const stale=pendingState!==JSON.stringify(snapshot(state));
    const active=await window.AssistantChat.complete(data,chatTicket,{apply:!stale});if(!active)return;
    $('ai-status').textContent=stale?'Your selection changed; actions were skipped.':'Response complete. References are included in the conversation.';
-   if(!data.sources?.length)$('ai-status').textContent+=' No source references were returned; this answer is unverified.';
    if(stale)window.AssistantChat.report('Actions skipped because the demonstration changed while the response was being prepared.');
    answerState=pendingState;return;
   }

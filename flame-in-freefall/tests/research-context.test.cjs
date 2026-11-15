@@ -13,7 +13,7 @@ test('public research notes preserve original Markdown byte for byte', async () 
     for (const doc of documents) {
       const source = await readFile(resolve(__dirname, '..', doc.path), 'utf8');
       assert.equal(doc.markdown, source);
-      assert.equal(doc.status, 'draft');
+      assert.equal(doc.status, source.match(/^status: (.+)$/m)?.[1] || 'draft');
     }
   }
   for (const page of ['../../.env', '__proto__', 'constructor', null]) {

@@ -125,3 +125,9 @@ Run `python3 tests/browser/walkthrough.py` against a server on port 4174 (or set
 ### Source provenance
 
 [The source register](data/source-provenance.json) records where catalogue descriptions come from, which claims were checked, the date, and unresolved differences. [The data guide](data/README.md) documents the audit and the required checks before importing measurements. Run `npm run sync:sources` after editing the register; this generates the browser copy but does not verify websites. Every page has a collapsible source section. The catalogue and CSV include provenance, and the assistant receives the same register. Direct PSI links currently cover BASS-II, Saffire-I, FLEX and SAME-R; grouped families are not represented as single datasets. Raw numerical data have not been imported.
+
+### Hover definitions
+
+All research pages highlight glossary terms with a dotted underline. Hover or focus for one second to open a definition; tap/click opens it immediately. Escape or leaving the term dismisses it. Popups remain open while the pointer is over the definition.
+
+NASA experiment descriptions come from headings and text in `context/experiments/experiments.md`. Run `npm run sync:glossary` after editing it (`npm run sync:notes` also runs this step). The generated file is `dist/experiment-definitions.js`; do not edit it by hand. Draft descriptions are labelled, and experiments without an entry display a missing-description message. Scientific claims in draft descriptions still require review.

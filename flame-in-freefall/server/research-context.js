@@ -5,7 +5,7 @@ const pages = {
   understand: { scenes: ['earth', 'microgravity', 'ventilation'], files: ['fires-in-microgravity.md', 'physics-of-combustion.md', 'flamelets.md'] },
   prevent: { scenes: ['cooling', 'supply', 'transport'], files: ['materials-and-ventilation.md'] },
   detect: { scenes: [], files: ['laser-diode.md', 'brunswick-fire.md', 'multi-angle-optical-sensors.md'] },
-  suppress: { scenes: ['mist', 'ionic', 'acoustic'], files: ['fire-water-mist.md', 'electric-field-driven-ionic-wind.md', 'acoustic-fire-suppression.md'] },
+  suppress: { scenes: ['mist', 'ionic', 'acoustic'], files: ['fire-water-mist.md', 'electric-field-driven-ionic-wind.md', 'acoustic-fire-suppression.md', 'ventilation-and-flamelets.md'] },
   applications: { scenes: ['overview'], files: ['applications.md'] },
   experiments: { scenes: ['overview'], files: ['experiments.md'] }
 };
@@ -13,13 +13,13 @@ const pages = {
 // Annotations accompany the original draft; they never rewrite the source.
 const reviewNotes = {
   'fires-in-microgravity.md': 'Team review needed: the wording about absent gravity and cool flames needs correction. Microgravity is free fall; reduced convection alone does not explain cool-flame chemistry. Check the Mir incident attribution against a primary source.',
-  'physics-of-combustion.md': 'The oxygen-index statement has no material, numerical result or source attached. It cannot establish a flammability threshold.',
+  'physics-of-combustion.md': 'The published FLEX summary supports approximately 12% methanol and 15% heptane LOI in oxygen/nitrogen, not universal or safe cabin limits. Diffusive extinction involves insufficient residence time, not just lack of oxygen. Do not repeat claims that lower-temperature flames are inherently less dangerous or that radical chains are never-ending. Pyrolysis is thermal decomposition; the six-stage list is conceptual rather than a mandatory sequence. The IIT diagram labels r_s as diameter but draws a radius. The page includes these clarifications.',
   'flamelets.md': 'The quoted study and numbered citations need a complete reference. Narrow-channel behaviour is an analogy to some microgravity conditions, not a substitute for every space environment.',
   'fire-water-mist.md': 'The hardware quantities, droplet sizes and water terminology need source verification. This original draft is not an extinguisher specification or an operating procedure.',
   'electric-field-driven-ionic-wind.md': 'The efficiency and suitability comparisons need evidence for a defined apparatus. Gas motion can change flame behaviour in either direction; suppression is not guaranteed.',
   'acoustic-fire-suppression.md': 'The NASA attribution and frequency range need a source. Sound moves the gas mixture, not oxygen selectively. Reignition and cool-flame chemistry need separate explanations.',
   'applications.md': 'Add primary references for the historical examples and distinguish proposed applications from demonstrated improvements.',
-  'experiments.md': 'The FLEX section is empty. The catalogue needs individual investigation records, conditions, measurements and links to the underlying data.'
+  'experiments.md': 'Experiment descriptions are drafts. Verify dates and programme status against primary references. The catalogue still needs individual run records, conditions, measurements and links to underlying data.'
 };
 
 function metadata(markdown, key, fallback = '') {

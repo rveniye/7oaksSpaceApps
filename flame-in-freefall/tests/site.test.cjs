@@ -64,7 +64,7 @@ test('investigation controls search, compare up to three and clear the compariso
   for(let index=0;index<3;index++){const input=check(cards()[index]);input.checked=true;input.listeners.change();}
   assert(check(cards()[3]).disabled);
   assert.equal(byId('investigation-compare-head').children.length,4);
-  assert.equal(byId('investigation-compare-body').children.length,9);
+  assert.equal(byId('investigation-compare-body').children.length,7);
   assert.equal(byId('investigation-comparison').hidden,false);
   byId('investigation-search').value='missing research';byId('investigation-search').listeners.input();
   assert.match(cards()[0].textContent,/No matching/);

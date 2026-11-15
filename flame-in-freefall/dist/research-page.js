@@ -131,7 +131,6 @@
         const active = await window.AssistantChat.complete(data, chatTicket, {apply:!stale});
         if (!active) return;
         $('ai-status').textContent = stale ? 'Your selection changed; the answer refers to the earlier view. Actions were skipped.' : 'Response complete. Action results are shown with the answer.';
-        if (!data.sources?.length) $('ai-status').textContent += ' No source references were returned; this answer is unverified.';
         if (stale) window.AssistantChat.report('Actions skipped because the demonstration changed while the response was being prepared.');
         return;
       }
@@ -145,11 +144,9 @@
       const stale = sentRevision !== revision || JSON.stringify(sentApplicationInputs) !== JSON.stringify(applicationInputs());
       showActions(data.actions, !stale);
       $('ai-result').hidden = false;
-      const noSources = !Array.isArray(data.sources) || !data.sources.length;
       $('ai-status').textContent = (stale
         ? 'The demonstration changed while this answer was prepared. It describes your earlier selection; suggested control changes were skipped.'
-        : 'References and evidence limitations are listed below.')
-        + (noSources ? ' No source references were returned; this explanation is unverified.' : '');
+        : 'Response complete.');
     } catch (error) {
       $('ai-status').textContent = error.name === 'TimeoutError' ? 'The request timed out. Please try again.' : error.message;
     } finally { button.disabled = false; }

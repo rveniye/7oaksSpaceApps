@@ -37,7 +37,7 @@
  const toolbar=node('div',undefined,'chat-toolbar'),clear=node('button','Clear conversation'),repeat=node('button','Repeat last action'),skip=node('button','Show full answer');clear.type=repeat.type=skip.type='button';skip.hidden=true;toolbar.append(clear,repeat,skip);
  const storageNote=node('p',undefined,'chat-storage');const transcript=node('div',undefined,'chat-transcript');transcript.setAttribute('aria-label','Conversation');
  output.prepend(toolbar,storageNote,transcript);
- function renderMessage(m){const article=node('article',undefined,`chat-message chat-${m.role}`);article.append(node('div',`${m.role==='user'?'You':'7oaks'} · ${m.page}`,'chat-message-label'));const body=node('div',undefined,'chat-message-body');markdown(body,m.role==='assistant'?displayAnswer(m.revealed??m.content,m.sources):m.content);article.append(body);if(m.sources?.length){const sources=node('ul',undefined,'chat-sources');for(const s of m.sources){const item=node('li');if(s.url){const link=node('a',s.title);link.href=s.url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);}else item.textContent=s.title;sources.append(item);}article.append(sources);}if(m.role==='assistant'&&!m.sources?.length)article.append(node('p','No supporting source references were returned; this answer is unverified.','chat-source-warning'));if(m.status)article.append(node('p',m.status,'chat-action-status'));transcript.append(article);return body;}
+ function renderMessage(m){const article=node('article',undefined,`chat-message chat-${m.role}`);article.append(node('div',`${m.role==='user'?'You':'7oaks'} · ${m.page}`,'chat-message-label'));const body=node('div',undefined,'chat-message-body');markdown(body,m.role==='assistant'?displayAnswer(m.revealed??m.content,m.sources):m.content);article.append(body);if(m.sources?.length){const sources=node('ul',undefined,'chat-sources');for(const s of m.sources){const item=node('li');if(s.url){const link=node('a',s.title);link.href=s.url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);}else item.textContent=s.title;sources.append(item);}article.append(sources);}if(m.status)article.append(node('p',m.status,'chat-action-status'));transcript.append(article);return body;}
  function render(){const top=output.scrollTop;transcript.replaceChildren();messages.forEach(renderMessage);output.scrollTop=top;}
  function follow(){output.scrollTop=output.scrollHeight;rememberScroll();}
  render();save();
@@ -83,7 +83,7 @@
  const stopButton=node('button','Stop walkthrough');stopButton.type='button';stopButton.hidden=true;toolbar.append(stopButton);
  stopButton.addEventListener('click',()=>stopWalkthrough('Walkthrough stopped. You can use the controls yourself.'));
  document.addEventListener('input',event=>{if(event.isTrusted&&event.target?.id!=='question')stopWalkthrough('Walkthrough stopped because you changed a control.');},true);
- document.addEventListener('click',event=>{if(event.isTrusted&&event.target?.closest?.('main button, main a'))stopWalkthrough('Walkthrough stopped because you used the page.');},true);
+ document.addEventListener('click',event=>{if(event.isTrusted&&event.target?.closest?.('main button:not(.glossary-term), main a'))stopWalkthrough('Walkthrough stopped because you used the page.');},true);
  function stopWalkthrough(message){
   if(!playback)return;
   const run=playback;run.cancelled=true;run.finish?.();run.release?.();playback=null;stopButton.hidden=true;skip.hidden=true;skip.textContent='Show full answer';

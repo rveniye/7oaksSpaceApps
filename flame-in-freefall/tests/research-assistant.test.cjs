@@ -55,7 +55,7 @@ test('a delayed assistant response cannot overwrite a newer demonstration select
   assert.equal(f.buttons[2].attributes['aria-pressed'], 'true');
   assert.equal(f.buttons[1].attributes['aria-pressed'], 'false');
   assert.match(f.ids['ai-status'].textContent, /control changes were skipped/);
-  assert.match(f.ids['ai-status'].textContent, /unverified/);
+  assert.match(f.ids['ai-status'].textContent, /suggested control changes were skipped/);
   assert.equal(f.ids['agent-actions'].children[0].href, 'detect.html');
   assert.equal(f.submit.disabled, false);
 });

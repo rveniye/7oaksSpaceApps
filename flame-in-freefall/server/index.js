@@ -10,7 +10,7 @@ import { validateContext, detectPrompt, agentInstruction, parseAgentResponse } f
 import { applicationContext } from './applications-context.js';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
-const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png' };
+const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg' };
 export function createHandler(answer = generate) {
   let busy = false, requests = [];
   return async (req, res) => {

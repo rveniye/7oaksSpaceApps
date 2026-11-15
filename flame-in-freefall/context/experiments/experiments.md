@@ -16,3 +16,7 @@ NASA ran the Solid Fuel Ignition and Extinction project (SoFIE) from July 5, 202
 ACME is a set of six investigations examining fuel efficiency and pollutant production in combustion and stands for Advanced Combustion via Microgravity Experiments.
 
 # FLEX
+Flame Extinguishment Experiment (FLEX) Refers to a set of experiments conducted by NASA to study the behaviour of flames in microgravity. Lead to the discovery of cool flames and helped scientists better understand how to improve fire safety in a space station.
+
+# FIRES
+FIRES stands for Firefighter's Integrated Response Equipment System. It was a joint research and development program created by NASA and the US Fire Administration, meant to develop ultimate protective gear for firefighters to replace outdated gear.

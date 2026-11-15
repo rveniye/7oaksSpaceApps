@@ -130,7 +130,7 @@ globalThis.SourceProvenance = {
       "origin": "Curated research summary",
       "measurementsImported": false,
       "checkedScope": "FLEX studies droplet combustion limits and gaseous suppression. The repository and operations overview agree on the extinction and limiting-oxygen objectives.",
-      "limits": "Direct record is FLEX, not FLEX-2. No measured extinction threshold or complete run matrix is loaded.",
+      "limits": "Direct record is FLEX, not FLEX-2. No raw extinction measurements or complete run matrix is loaded. The Understand physics section separately cites published LOI summary values.",
       "sources": [
         {
           "title": "FLEX · PSI-69 v5",
@@ -385,6 +385,75 @@ globalThis.SourceProvenance = {
           "url": "https://ntrs.nasa.gov/citations/20210012108",
           "kind": "Preprint abstract",
           "locator": "Abstract and Document Type"
+        }
+      ],
+      "issues": []
+    },
+    "physics": {
+      "id": "EVID-PHYSICS",
+      "pages": [
+        "understand"
+      ],
+      "checkedOn": "2026-11-15",
+      "status": "Published summary and diagram checked",
+      "origin": "Published summary values and an educational schematic",
+      "measurementsImported": false,
+      "checkedScope": "The 2014 FLEX paper reports oxygen/nitrogen LOI values near 0.12 for methanol and 0.15 for heptane. The 2013 methanol paper distinguishes residence-time and radiative extinction. The IIT Kanpur diagram matches the supplied image.",
+      "limits": "Reported summary values only, not imported run measurements or universal safety thresholds. The diagram is an idealised flame-sheet model. Source Markdown is preserved; the webpage corrects unsupported safety conclusions and distinguishes pyrolysis from an obligatory six-step sequence.",
+      "sources": [
+        {
+          "title": "Droplet Combustion Experiments Aboard the International Space Station",
+          "url": "https://bpb-us-w2.wpmucdn.com/sites.coecis.cornell.edu/dist/9/231/files/2018/09/2014-MST-Droplet-combustion-experiments-aboard-the-2je8ess-12toi72.pdf",
+          "kind": "Research paper",
+          "locator": "Abstract, pp. 65–66; DOI 10.1007/s12217-014-9372-2"
+        },
+        {
+          "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+          "url": "https://ntrs.nasa.gov/api/citations/20130014061/downloads/20130014061.pdf",
+          "kind": "Research paper",
+          "locator": "Abstract and section 3.3: two extinction mechanisms"
+        },
+        {
+          "title": "IIT Kanpur Virtual Labs: Characterization of Droplet Combustion",
+          "url": "https://home.iitk.ac.in/~mishra/virtual_lab/documentor/theory8.html",
+          "kind": "University teaching material",
+          "locator": "Droplet Combustion Processes; image picture66.jpg"
+        },
+        {
+          "title": "Purdue University: Activation Energy",
+          "url": "https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch22/activate",
+          "kind": "University teaching material",
+          "locator": "Arrhenius equation and temperature dependence"
+        }
+      ],
+      "issues": [
+        "The original diagram calls r_s a droplet diameter, but draws it from centre to surface. The caption explicitly identifies it as a radius.",
+        "The Markdown claim that lower-temperature flames are significantly less dangerous is not presented as an established conclusion."
+      ]
+    },
+    "ventilation": {
+      "id": "EVID-VENTILATION",
+      "pages": [
+        "suppress"
+      ],
+      "checkedOn": "2026-11-15",
+      "status": "Summary checked",
+      "origin": "Published experimental reports",
+      "measurementsImported": false,
+      "checkedScope": "NASA Glenn confined-channel flamelet flare-up checked against text and caption. Saffire V PMMA reduced-flow cooling sequence checked against section III.A, Table 1 and Figures 5–6; cotton persistence checked against Figure 3 discussion.",
+      "limits": "Specific channel and spacecraft experiment configurations. No evidence here establishes a quick ventilation open–close pulse as reliable flamelet suppression. Published settings are not cabin operating instructions or raw run data.",
+      "sources": [
+        {
+          "title": "NASA Glenn: Fingering Flamelets Form a Dynamic Population",
+          "url": "https://ntrs.nasa.gov/api/citations/20050217475/downloads/20050217475.pdf",
+          "kind": "NASA research summary",
+          "locator": "Pages 1–2: text and figure caption on increasing airflow"
+        },
+        {
+          "title": "Fire Safety Implications of Preliminary Results from Saffire IV and V",
+          "url": "https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES%202021-266%200503-2021%20final.pdf",
+          "kind": "Conference paper, ICES-2021-266",
+          "locator": "Section III.A, pp. 4–6; Table 1; Figures 3, 5–6"
         }
       ],
       "issues": []
