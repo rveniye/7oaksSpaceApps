@@ -7,7 +7,7 @@
  const guide=node('details');guide.append(node('summary','Research references'));
  for(const record of Object.values(data.records).filter(r=>['home','experiments'].includes(page)||r.pages.includes(page))){
   const article=node('article');article.className='provenance-record';
-  article.append(node('h3',record.sources[0].title),node('p',`References checked ${record.checkedOn}`));
+  article.append(node('h3',record.sources[0].title),node('p',`${record.status.startsWith('References supplied')?'References added':'References checked'} ${record.checkedOn}`));
   const list=node('ul');for(const source of record.sources){const li=node('li'),a=node('a',source.title);a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';li.append(a,node('span',` — ${source.kind}. Check: ${source.locator}.`));if(source.doi)li.append(node('span',` DOI: ${source.doi}.`));list.append(li);}article.append(list);
   guide.append(article);
  }

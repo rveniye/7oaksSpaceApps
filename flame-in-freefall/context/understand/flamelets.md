@@ -45,3 +45,11 @@ If the flow velocity is high enough, the flame front stays uniform.
 If it is too low, the flame might not receive enough oxygen for combustion.
 If the velocity is low enough, the flame might break into flamelet.
 
+
+
+## Research references
+
+- [ScienceDirect — flamelet research paper](https://www.sciencedirect.com/science/article/abs/pii/S0010218009000157)
+- [Fire in Microgravity — American Scientist](https://www.americanscientist.org/article/fire-in-microgravity)
+
+Source audit, 2026-11-15: supplied by the research team as sources used for this section. Direct retrieval returned HTTP 403 for ScienceDirect and HTTP 503 for American Scientist. Original content could not be independently inspected in this check; no new measurements or scientific claims were extracted.

@@ -456,6 +456,35 @@
         }
       ],
       "issues": []
+    },
+    "flamelets": {
+      "id": "EVID-FLAMELETS",
+      "pages": [
+        "understand"
+      ],
+      "checkedOn": "2026-11-15",
+      "status": "References supplied; content check incomplete",
+      "origin": "Research-team supplied references",
+      "measurementsImported": false,
+      "checkedScope": "Exact URLs supplied by the team were added to the flamelet section. Retrieval attempted using the research browser and a direct HTTP client.",
+      "limits": "Original content was inaccessible: ScienceDirect HTTP 403, American Scientist HTTP 503. Article identity and claim-level support were not independently verified. No new measurements or scientific claims extracted.",
+      "sources": [
+        {
+          "title": "ScienceDirect — flamelet research paper",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0010218009000157",
+          "kind": "Team-supplied reference",
+          "locator": "PII S0010218009000157; original content check blocked (HTTP 403)"
+        },
+        {
+          "title": "Fire in Microgravity — American Scientist",
+          "url": "https://www.americanscientist.org/article/fire-in-microgravity",
+          "kind": "Team-supplied reference",
+          "locator": "Supplied article URL; original content check unavailable (HTTP 503)"
+        }
+      ],
+      "issues": [
+        "Independent original-source content check remains incomplete."
+      ]
     }
   }
 }
