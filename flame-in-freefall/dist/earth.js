@@ -15,7 +15,7 @@
   const reference=M.soot('low','high');$('soot-scenario-title').textContent=balance.escaped===reference.escaped?'Matches the comparison':balance.escaped>reference.escaped?'More soot escapes':'Less soot escapes';
   $('soot-observation').textContent=`In this illustration, ${balance.formed} dots represent soot formation. Oxidation consumes ${balance.oxidised}, leaving ${balance.escaped} to reach the exhaust, compared with ${reference.escaped} in the fixed example. Oxidation is chemical consumption of soot, not filtration. The counts describe the animation rather than measured emissions.`;
   $('soot-pause').textContent=sootPaused?'▶ Play motion':'Ⅱ Pause motion';$('soot-pause').setAttribute('aria-pressed',String(sootPaused));
-  coolCloseup();engine();save();draw();
+  coolCloseup();save();draw();if(typeof CustomEvent!=='undefined')document.dispatchEvent?.(new CustomEvent('applicationstatechange'));
  }
  function stopSequence(){flamePlaying=false;elapsed=0;}
  $('flame-stage').addEventListener('input',()=>{stopSequence();state.stage=Number($('flame-stage').value);sync();});
@@ -26,11 +26,10 @@
  for(const field of ['formation','oxidation'])$('soot-'+field).addEventListener('change',()=>{state[field]=$('soot-'+field).value;sync();});
  for(const [id,formation,oxidation] of [['soot-lower','low','high'],['soot-higher','high','low']])$(id).addEventListener('click',()=>{state.formation=formation;state.oxidation=oxidation;sync();});
  $('soot-pause').addEventListener('click',()=>{sootPaused=!sootPaused;sync();start();});
- document.querySelectorAll('[data-engine]').forEach(b=>b.addEventListener('click',()=>{state.engine=Number(b.dataset.engine);sync();}));
  function coolCloseup(){
-  const active=state.stage>0,cool=state.stage>=2,color=cool?'#91e0ed':'#ffb176';
+  const active=state.stage===1||state.stage===3,cool=state.stage===3,extinguished=state.stage>=2,color=cool?'#91e0ed':'#ffb176';
   $('light-state').textContent=['No flame light','Bright hot flame','Visible flame fades','Very faint / hard to see'][state.stage];
-  $('reaction-state').textContent=['Not burning','Hot combustion','Low-temperature route','Cool chemistry continues'][state.stage];
+  $('reaction-state').textContent=['Not burning','Hot combustion','Check for continued reaction','Cool chemistry continues'][state.stage];
   $('light-indicator').style.background=state.stage===1?'#ffb176':state.stage>=2?'#344553':'#25313a';
   $('reaction-indicator').style.background=active?color:'#25313a';
   $('closeup-explanation').textContent=[
@@ -43,30 +42,25 @@
   $('cool-closeup-svg').innerHTML=`<defs><radialGradient id="liquid-shade" cx="35%" cy="30%"><stop stop-color="#e6f4fb"/><stop offset=".4" stop-color="#84b2ca"/><stop offset="1" stop-color="#284b61"/></radialGradient><radialGradient id="zone-glow"><stop offset=".55" stop-color="${color}" stop-opacity="0"/><stop offset=".8" stop-color="${color}" stop-opacity=".18"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></radialGradient><marker id="fuel-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#ffbd8b"/></marker><marker id="oxygen-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#9ad5f1"/></marker></defs>
   <rect x="1" y="1" width="598" height="418" rx="14" fill="#0b141c" stroke="#293c4a"/>
   <g fill="#829aa9" font-family="Arial" font-size="12"><text x="24" y="29">EXPLANATORY CLOSE-UP</text><text x="24" y="397">Geometry and colour are illustrative, not measured.</text></g>
-  ${cool?'<circle cx="300" cy="205" r="131" fill="none" stroke="#a67853" stroke-dasharray="5 9" opacity=".5"/><path d="M414 137L459 103" stroke="#a67853"/><text x="422" y="86" fill="#bc997d" font-size="12" font-family="Arial">Former hot zone</text>':''}
+  ${extinguished?'<circle cx="300" cy="205" r="131" fill="none" stroke="#a67853" stroke-dasharray="5 9" opacity=".5"/><path d="M414 137L459 103" stroke="#a67853"/><text x="422" y="86" fill="#bc997d" font-size="12" font-family="Arial">Former hot zone</text>':''}
   ${active?`<circle cx="300" cy="205" r="${cool?116:145}" fill="url(#zone-glow)"/><circle class="reaction-halo" cx="300" cy="205" r="${cool?91:115}" fill="none" stroke="${color}" stroke-width="${cool?3:7}" ${cool?'stroke-dasharray="3 6"':''}/>`:''}
   <circle cx="300" cy="205" r="29" fill="url(#liquid-shade)"/><circle cx="291" cy="195" r="6" fill="#e3f2fa" opacity=".5"/>
   <path d="M300 236V290" stroke="#829ba9"/><text x="300" y="310" text-anchor="middle" fill="#d5e7f0" font-family="Arial" font-size="14">Liquid fuel droplet</text>
-  ${active?`${arrow('M335 205H384','#ffbd8b')}${arrow('M265 205H216','#ffbd8b')}${arrow('M300 169V123','#ffbd8b')}${arrow('M503 205H404','#9ad5f1')}${arrow('M97 205H196','#9ad5f1')}${arrow('M300 53V93','#9ad5f1')}<g font-family="Arial" font-size="14"><text x="407" y="186" fill="#9ad5f1">Oxygen in</text><text x="313" y="153" fill="#ffbd8b">Fuel vapour out</text><text x="300" y="351" text-anchor="middle" fill="${color}">${cool?'LOW-TEMPERATURE REACTION CONTINUES':'HOT REACTION AROUND THE DROPLET'}</text></g>`:'<text x="300" y="350" text-anchor="middle" fill="#91a5b3" font-family="Arial" font-size="14">BEFORE IGNITION · NO FLAME</text>'}`;
- }
- function engine(){
-  const descriptions=['Fuel and air form a mixture in the cylinder above the piston. HCCI stands for Homogeneous Charge Compression Ignition: the fuel and air are mixed before ignition. The dots represent this mixture, not measured molecules.','As the piston rises, it compresses the fuel–air mixture, increasing its temperature and pressure. Low-temperature chemical reactions can begin during this process and influence the timing of subsequent ignition.','Under suitable conditions, the compressed mixture autoignites without a spark. The orange dots represent combustion occurring throughout the charge. Understanding the earlier low-temperature chemistry helps engineers control when this happens; the diagram does not calculate ignition timing.'];
-  $('engine-description').textContent=descriptions[state.engine];document.querySelectorAll('[data-engine]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.engine)===state.engine)));
-  const y=state.engine===0?235:state.engine===1?157:180;
-  $('engine-diagram').innerHTML=`<rect x="80" y="40" width="260" height="250" rx="18" fill="#141b20" stroke="#7c919d" stroke-width="3"/><rect x="96" y="55" width="228" height="${y-55}" fill="${state.engine===2?'#46291b':'#172a34'}"/><path d="M96 65V${y}M324 65V${y}" stroke="#a4c4d3" stroke-width="2"/><rect x="98" y="${y}" width="224" height="22" rx="3" fill="#8b999f"/><path d="M210 ${y+22}V315" stroke="#54646c" stroke-width="19"/>${Array.from({length:28},(_,i)=>{const x=116+(i%7)*31,py=72+Math.floor(i/7)*(y-83)/4;return `<circle cx="${x}" cy="${py}" r="${state.engine===2?7:4}" fill="${state.engine===2?'#ffb36d':i%2?'#83b9d3':'#dcad7e'}" opacity=".85"/>`;}).join('')}<text x="210" y="28" text-anchor="middle" fill="#ccdce3" font-family="Arial" font-size="14">${['Mixed charge','Compression','Distributed ignition'][state.engine]}</text><text x="210" y="329" text-anchor="middle" fill="#8e9ca3" font-family="Arial" font-size="11">ILLUSTRATIVE ENGINE CYCLE · NOT TO SCALE</text>`;
+  ${active?`${arrow('M335 205H384','#ffbd8b')}${arrow('M265 205H216','#ffbd8b')}${arrow('M300 169V123','#ffbd8b')}${arrow('M503 205H404','#9ad5f1')}${arrow('M97 205H196','#9ad5f1')}${arrow('M300 53V93','#9ad5f1')}<g font-family="Arial" font-size="14"><text x="407" y="186" fill="#9ad5f1">Oxygen in</text><text x="313" y="153" fill="#ffbd8b">Fuel vapour out</text><text x="300" y="351" text-anchor="middle" fill="${color}">${cool?'LOW-TEMPERATURE REACTION CONTINUES':'HOT REACTION AROUND THE DROPLET'}</text></g>`:'<text x="300" y="350" text-anchor="middle" fill="#91a5b3" font-family="Arial" font-size="14">'+(extinguished?'HOT FLAME GONE · CHECK FOR REACTION':'BEFORE IGNITION · NO FLAME')+'</text>'}`;
  }
  function surface(canvas,ctx){if(!ctx)return false;const box=canvas.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,2);if(box.width===0)return false;const width=Math.round(box.width*ratio),height=Math.round(box.height*ratio);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}ctx.setTransform(width/800,0,0,height/330,0,0);ctx.clearRect(0,0,800,330);return true;}
  function text(ctx,label,x,y,color='#a2aeb6',size=13){const width=(ctx===fc?flame:sootCanvas).getBoundingClientRect().width;ctx.font=`${Math.max(size,800/Math.max(width,300)*9)}px Arial`;ctx.textAlign='center';ctx.fillStyle=color;ctx.fillText(label,x,y);}
  function glow(ctx,x,y,r,color,alpha){ctx.save();ctx.globalAlpha=alpha;const g=ctx.createRadialGradient(x,y,3,x,y,r);g.addColorStop(0,color);g.addColorStop(.55,color);g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();}
  function drawFlames(){if(!surface(flame,fc))return;fc.strokeStyle='#26313a';fc.beginPath();fc.moveTo(400,0);fc.lineTo(400,330);fc.stroke();
   for(let side=0;side<2;side++){const x=side?600:200,y=160;fc.strokeStyle='#34414a';fc.beginPath();fc.arc(x,y,116,0,Math.PI*2);fc.stroke();
-   const hot=state.stage>0&&(side===0||state.stage===1),cool=side===1&&state.stage>=2;
+   const hot=state.stage>0&&(side===0||state.stage===1),cool=side===1&&state.stage===3,extinguished=side===1&&state.stage===2;
    // Layered translucent ribbons suggest a spherical flame rather than a solid ring.
    if(hot){
     const r=68+(reduced.matches?0:Math.sin(t*2)*2);glow(fc,x,y,r+43,'#e96b27',.2);
     for(let layer=0;layer<9;layer++){fc.beginPath();for(let i=0;i<=120;i++){const angle=i/120*Math.PI*2;const ripple=Math.sin(angle*5+t*1.5+layer*.6)*3+Math.sin(angle*9-t)*1.5;const radius=r+layer*1.7+ripple;const px=x+Math.cos(angle)*radius,py=y+Math.sin(angle)*radius;i?fc.lineTo(px,py):fc.moveTo(px,py);}fc.closePath();fc.strokeStyle=`rgba(255,${178-layer*8},${106-layer*7},${.45-layer*.045})`;fc.lineWidth=3;fc.stroke();}
     glow(fc,x,y,55,'#82bfe8',.07);
    }
+   if(extinguished){fc.strokeStyle='#a97d58';fc.lineWidth=1;fc.setLineDash([4,7]);fc.beginPath();fc.arc(x,y,78,0,Math.PI*2);fc.stroke();fc.setLineDash([]);text(fc,'Former hot-flame region',x,265,'#b99b7f',12);}
    if(cool){
     const opacity=state.enhance?.75:.045;
     if(state.enhance){fc.strokeStyle='#9e6c4666';fc.lineWidth=1;fc.setLineDash([4,7]);fc.beginPath();fc.arc(x,y,78,0,Math.PI*2);fc.stroke();fc.setLineDash([]);}
@@ -78,16 +72,16 @@
      }
     }
    }
-   const drop=state.stage===0?18:state.stage===1?16:side===0?13:15;glow(fc,x-3,y-4,drop,'#c1e3ec',1);fc.fillStyle='#b4d3df';fc.beginPath();fc.arc(x,y,drop*.7,0,Math.PI*2);fc.fill();
+   const drop=17;glow(fc,x-3,y-4,drop,'#c1e3ec',1);fc.fillStyle='#b4d3df';fc.beginPath();fc.arc(x,y,drop*.7,0,Math.PI*2);fc.fill();
    if(state.stage===1){fc.strokeStyle='#d9a586';fc.lineWidth=3;fc.beginPath();fc.moveTo(x-115,y+65);fc.lineTo(x-35,y+15);fc.stroke();text(fc,'Heated igniter',x-55,265,'#dfad86',12);}
-   text(fc,'Liquid droplet',x,205,'#bccbd5',12);text(fc,hot?'HOT REACTION ZONE':cool?state.enhance?'COOL ZONE · ENHANCED':'COOL ZONE · VERY FAINT':'FUEL + OXYGEN / UNLIT',x,303,hot?'#ffb16c':cool?'#95d5e9':'#8c9ca8',12);
+   text(fc,'Liquid droplet',x,205,'#bccbd5',12);text(fc,hot?'HOT REACTION ZONE':cool?state.enhance?'COOL ZONE · ENHANCED':'COOL ZONE · VERY FAINT':extinguished?'HOT FLAME NO LONGER VISIBLE':'FUEL + OXYGEN / UNLIT',x,303,hot?'#ffb16c':cool?'#95d5e9':'#8c9ca8',12);
   }
  }
  function drawSoot(){if(!surface(sootCanvas,sc))return;sc.strokeStyle='#26313a';sc.beginPath();sc.moveTo(400,0);sc.lineTo(400,330);sc.stroke();
   for(let side=0;side<2;side++){const x=side?600:200,balance=side?M.soot(state.formation,state.oxidation):M.soot('low','high');
    sc.fillStyle='#1e282f';sc.fillRect(x-33,274,66,42);sc.strokeStyle='#7f909a';sc.strokeRect(x-33,274,66,42);text(sc,'Fuel inlet',x,328,'#9babb6',11);
    const g=sc.createLinearGradient(x,270,x,66);g.addColorStop(0,'#4e90cb');g.addColorStop(.4,side&&state.formation==='high'?'#d88739':'#4284b7');g.addColorStop(1,'#13232e');sc.fillStyle=g;sc.beginPath();sc.moveTo(x-30,273);sc.bezierCurveTo(x-100,173,x-48,98,x,64);sc.bezierCurveTo(x+48,98,x+100,173,x+30,273);sc.closePath();sc.fill();
-   sc.setLineDash([4,5]);sc.strokeStyle='#68777f';sc.beginPath();sc.moveTo(x-145,72);sc.lineTo(x+145,72);sc.stroke();sc.setLineDash([]);text(sc,'Exhaust boundary',x,23,'#8f9da7',11);
+   sc.setLineDash([4,5]);sc.strokeStyle='#68777f';sc.beginPath();sc.moveTo(x-145,72);sc.lineTo(x+145,72);sc.stroke();sc.setLineDash([]);text(sc,'Exhaust boundary',x,23,'#8f9da7',11);sc.strokeStyle='#739aad66';sc.setLineDash([3,6]);sc.beginPath();sc.moveTo(x-105,110);sc.lineTo(x+105,110);sc.moveTo(x-105,147);sc.lineTo(x+105,147);sc.stroke();sc.setLineDash([]);text(sc,'Soot consumed',x-112,130,'#a0d4e7',11);text(sc,'Soot forms',x+112,230,'#e0b17f',11);
    for(let i=0;i<balance.formed;i++){const phase=(sootTime*.11+i/balance.formed)%1;const py=252-phase*226;const survives=i>=balance.oxidised;const px=x+Math.sin(i*13.7)*Math.sin(phase*Math.PI)*48;
     if(!survives&&phase>.65)continue;
     const oxidation= !survives&&phase>.5;sc.globalAlpha=oxidation?Math.max(0,1-(phase-.5)/.15):1;sc.fillStyle=oxidation?'#83c8df':phase>.8?'#c2c8cc':'#e7b37d';sc.beginPath();sc.arc(px,py,oxidation?5:3,0,Math.PI*2);sc.fill();sc.globalAlpha=1;
@@ -96,11 +90,11 @@
   }
  }
  function draw(){drawFlames();drawSoot();}
- function tick(now){raf=0;if(document.hidden)return;const dt=last?Math.min((now-last)/1000,.1):0;last=now;
-  if(!reduced.matches)t+=dt;if(!sootPaused&&!reduced.matches&&sootVisible)sootTime+=dt;
+ function tick(now){raf=0;if(document.hidden)return;const dt=last?Math.min((now-last)/1000,.1)*(window.AssistantChat?.running?0.6:1):0;last=now;
+  if(flamePlaying&&!reduced.matches&&flameVisible)t+=dt;if(!sootPaused&&!reduced.matches&&sootVisible)sootTime+=dt;
   if(flamePlaying&&flameVisible){elapsed+=dt;if(elapsed>=2.5){elapsed=0;if(state.stage<3)state.stage++;else flamePlaying=false;sync();}}
-  if(flameVisible)drawFlames();if(sootVisible&&!sootPaused)drawSoot();
-  if((flamePlaying&&flameVisible)||(!reduced.matches&&(flameVisible||(!sootPaused&&sootVisible))))raf=requestAnimationFrame(tick);
+  if(flameVisible&&flamePlaying)drawFlames();if(sootVisible&&!sootPaused)drawSoot();
+  if((flamePlaying&&flameVisible)||(!reduced.matches&&!sootPaused&&sootVisible))raf=requestAnimationFrame(tick);
  }
  function start(){cancelAnimationFrame(raf);last=0;raf=0;if(!document.hidden)raf=requestAnimationFrame(tick);}
  new ResizeObserver(draw).observe(flame);new ResizeObserver(draw).observe(sootCanvas);

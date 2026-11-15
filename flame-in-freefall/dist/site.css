@@ -1,0 +1,42 @@
+/* Shared research layout. Page-specific diagrams keep their own styles. */
+:root{--accent:#e9a16d;--line:#343a3d;--muted:#acb0b2;--paper:#efeeea;--panel:#101517}
+body{background:#080b0d;color:var(--paper)}
+[hidden]{display:none!important}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #e9a16d;outline-offset:4px}
+.header{height:auto;min-height:88px;gap:28px;padding:20px 0;margin:0 4.5%;border-bottom:1px solid var(--line)}
+.header nav{display:flex;gap:clamp(16px,2.5vw,36px);font-size:14px;color:#bdc1c3}
+.header nav a{padding:12px 0;border-bottom:2px solid transparent}
+.header nav a[aria-current="page"]{color:#f5b784;border-color:#e9a16d}
+.header nav a:hover{color:white}.header .back-link{font-size:10px;color:#b4bec4;white-space:nowrap}
+.page-nav{display:flex;align-items:center;gap:25px;flex-wrap:wrap;margin:0 4.5%;padding:18px 0;color:#b1b8bc;border-bottom:1px solid #242c30;font-size:12px}
+.page-nav>span{color:#808d94;font-size:11px}.page-nav a:hover{color:#f5b784}
+.skip-link{position:fixed;left:12px;top:-100px;padding:14px;background:#fff;color:#111;z-index:200}.skip-link:focus{top:8px}
+.detect-intro{padding:38px 0 48px}.detect-intro h1{font-size:clamp(45px,6.3vw,88px);line-height:1.05;letter-spacing:-.055em;margin:28px 0 22px;max-width:1000px}
+.detect-intro h1 span{color:#a7b2ba}.detect-intro .lead,.intro-bottom p{font-size:19px;color:#c1c8cc;line-height:1.65;max-width:760px}
+.section-kicker,.eyebrow{color:#b1b8bc}.mono{letter-spacing:.8px}.research-module{padding-top:40px}.research-module>p,.learning-steps p,.flamelet-detail>p{color:#bac1c5}
+p{line-height:1.75}.section-bar{flex-wrap:wrap}.section-bar .pill{font-size:10px;letter-spacing:.3px}.scene-reading{font-size:15px;line-height:1.75;color:#d3d8db;min-height:0}.scene-reading p{font-size:14px;color:#bfc8cd}
+.model-note,.scope-note{font-size:12px;color:#a9b3b9;line-height:1.75}.research-demo{background:#10171b;border-color:#39454c}.research-demo svg{min-height:230px}.learning-steps{gap:28px}.learning-steps article{border-color:#414b51}.learning-steps h3{font-size:22px;line-height:1.35}
+.agent-toggle{width:58px;height:58px;border-radius:14px;background:#f0bc94;border-color:#edc09e}.agent-toggle svg{width:24px}.agent.is-open .agent-toggle{transform:none}.agent-panel{border-radius:8px}.agent .assistant-head .mono{font-size:9px}.agent .agent-output{max-height:min(60vh,540px)}.agent #question{font-size:14px}.agent #ai-answer{font-size:14px}.agent .assistant-navigation{display:block;margin:10px 15px;padding:10px;border:1px solid #627480;color:#eee;background:#1b272e}.agent .assistant-navigation:hover{border-color:var(--accent)}
+footer{min-height:110px;margin-top:40px}footer>span{color:#a2adb4}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+/* Keep the home page focused on the research task while retaining the project identity. */
+.hero{min-height:590px;height:690px;max-height:78svh;background:#080b0d}.hero h1{font-size:clamp(70px,10.4vw,150px);margin-top:35px}.hero-bottom{bottom:90px}.hero-bottom p{font-size:20px;max-width:460px}.hero-bottom p span{color:#a6b1b8}.hero-foot{bottom:20px}.rocket-scene{right:7%;top:0;width:40%;height:95%}.rocket-label{top:60%}.research{padding-top:75px}.section-intro p,.card p,.closing p{color:#b4bdc2}.card{background:#0d1114}.card-art{height:135px}.card-tag{color:#e9b28c}.card h3{letter-spacing:-.5px}.closing{padding-top:55px;padding-bottom:55px}.closing h2{font-size:clamp(32px,4vw,55px);letter-spacing:-.04em}.closing h2 span{color:#a6b2ba}.closing-bottom{align-items:start}.earth-hero{min-height:360px}.earth-hero .earth-feature-copy{padding:40px}.earth-hero h1{font-size:clamp(42px,5vw,68px)}
+@media(max-width:1000px){.header .back-link{display:none}.header nav{gap:20px}.hero{max-height:none;height:620px}.hero-bottom p{max-width:340px}.rocket-scene{width:50%}}
+@media(max-width:700px){.header{margin:0 6%;gap:12px;padding:17px 0;flex-wrap:wrap}.header nav{width:100%;order:2;justify-content:space-between;gap:8px;font-size:12px;flex-wrap:nowrap}.header nav a{padding:8px 0}.page-nav{margin:0 6%;gap:13px 20px;padding:15px 0;font-size:12px}.page-nav>span{width:100%}.detect-intro h1{font-size:44px}.detect-intro .lead{font-size:17px}.hero{min-height:590px;height:640px}.hero h1{font-size:15vw}.hero-bottom p{font-size:16px;max-width:210px}.rocket-scene{top:140px;right:2%;height:380px;width:80%}.rocket-label{top:35%}.hero-bottom{bottom:95px;gap:15px}.research-demo svg{min-height:190px}.agent-toggle{width:46px;height:46px}.agent.is-open .agent-toggle{right:calc(100% - 46px)}.earth-hero .earth-feature-copy{padding:170px 24px 30px}.earth-hero{min-height:450px}.section-bar h2{line-height:1.4}.research{padding-top:55px}footer{padding-bottom:80px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+.combustion-lessons{margin:0 4.5%}.combustion-lessons .earth-section{padding-top:55px;border-top:1px solid #343a3d;margin-top:45px}@media(max-width:700px){.combustion-lessons{margin:0 6%}}
+
+.assistant-prompts{display:flex;flex-wrap:wrap;gap:8px;padding:15px 15px 0}.assistant-prompts button{background:#1b272e;color:#dce6ec;border:1px solid #53656f;padding:8px 10px;font-size:12px;border-radius:5px;text-align:left}.assistant-prompts button:hover{border-color:#e9a16d}
+
+/* Persistent assistant conversation. */
+.agent{width:min(600px,calc(100vw - 32px))}.agent .agent-output{max-height:min(66vh,650px)}.chat-toolbar{display:flex;gap:10px;justify-content:space-between;padding:12px 15px}.chat-toolbar button{border:1px solid #53656f;color:#e0e7ea;background:#172229;font-size:12px;padding:7px 10px;border-radius:4px}.chat-storage{font-size:11px;color:#9eafb9;padding:0 15px;margin:0 0 14px}.chat-message{padding:16px;margin:12px 14px;border:1px solid #39474f;border-radius:8px;background:#131c22}.chat-user{background:#26221d;border-color:#665240;margin-left:35px}.chat-message-label{font-size:11px;color:#d5ae8f;margin-bottom:9px}.chat-message-body{font-size:14px;line-height:1.75;color:#dce3e7;overflow-wrap:anywhere}.chat-message-body p{margin:0 0 12px}.chat-message-body p:last-child{margin-bottom:0}.chat-message-body strong{font-weight:700;color:#fff}.chat-message-body em{font-style:italic}.chat-message-body ul,.chat-message-body ol{padding-left:22px;margin:10px 0}.chat-message-body h4{font-size:16px;color:#f4cfb2;margin:14px 0 8px}.chat-message-body pre{overflow:auto;white-space:pre-wrap;padding:12px;background:#080e12}.chat-message-body code{font-size:12px;background:#080e12;padding:2px 4px}.chat-message-body a{text-decoration:underline;color:#adcee2}.chat-sources{font-size:11px;color:#c7b39e;padding-left:18px;line-height:1.65}.chat-action-status{font-size:12px;color:#aed0c0;border-top:1px solid #3d5148;padding-top:10px}.agent .assistant-prompts{padding-bottom:10px}.agent .ai-status{color:#c2b5a8}
+
+.chat-source-warning{font-size:11px;color:#d2b299;line-height:1.6}
+
+.chat-toolbar{flex-wrap:wrap}.chat-toolbar button:disabled{opacity:.45;cursor:default}
+
+/* The assistant indicates which control it is operating without stealing focus. */
+.assistant-active-control{outline:3px solid #ffba82!important;outline-offset:5px;scroll-margin-top:100px;transition:outline-color .35s ease}
+.chat-toolbar{flex-wrap:wrap}.chat-toolbar button:focus-visible{outline:2px solid #ffba82;outline-offset:3px}
+
+.provenance-section{max-width:1200px;margin:64px auto;padding:24px clamp(20px,4vw,48px);border-top:1px solid #39474f;line-height:1.75}.provenance-section>p{max-width:85ch;color:#bec9ce}.provenance-section summary{cursor:pointer;color:#f0bc94}.provenance-record{padding:20px 0;border-bottom:1px solid #39474f}.provenance-record h3{font-size:18px}.provenance-record a{color:#f0bc94;text-decoration:underline;overflow-wrap:anywhere}.provenance-record ul{padding-left:22px}.provenance-record p,.provenance-record li{font-size:14px}.provenance-issue{border-left:3px solid #f0bc94;padding-left:14px}.record-provenance{font-size:12px;color:#c7b39e}

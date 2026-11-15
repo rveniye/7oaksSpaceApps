@@ -15,10 +15,12 @@ test('Earth controls initialise and update flame stages, soot presets, engine di
  const ctx=new Proxy({createRadialGradient(){return {addColorStop(){}};},createLinearGradient(){return {addColorStop(){}};}},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
  node('flame-canvas').getContext=()=>ctx;node('soot-canvas').getContext=()=>ctx;let saved;
  const c={document:{getElementById:node,querySelectorAll:s=>s==='[data-stage]'?stages:engine,addEventListener(){},hidden:false},localStorage:{getItem(){return null;},setItem(k,v){saved=JSON.parse(v);}},matchMedia:()=>({matches:true,addEventListener(){}}),requestAnimationFrame:()=>1,cancelAnimationFrame(){},devicePixelRatio:1,ResizeObserver:class{observe(){}},IntersectionObserver:class{observe(){}}};c.window=c;vm.createContext(c);vm.runInContext(read('earth-model.js'),c);vm.runInContext(read('earth.js'),c);
- assert.match(node('stage-title').textContent,/not started/);stages[3].handlers.click();assert.match(node('stage-title').textContent,/faint reaction/);
+ assert.match(node('stage-title').textContent,/not started/);
+ stages[2].handlers.click();assert.match(node('reaction-state').textContent,/Check for continued reaction/);assert.doesNotMatch(node('cool-closeup-svg').innerHTML,/class="reaction-halo"/);assert.match(node('cool-closeup-svg').innerHTML,/Former hot zone/);
+ stages[3].handlers.click();assert.match(node('stage-title').textContent,/faint reaction/);assert.match(node('cool-closeup-svg').innerHTML,/class="reaction-halo"/);
  node('enhance-cool').checked=false;node('enhance-cool').handlers.change();assert.match(node('stage-description').textContent,/Enhancement is off/);
  node('soot-lower').handlers.click();assert.equal(node('soot-escaped').textContent,1);assert.match(node('soot-scenario-title').textContent,/Matches/);
  node('soot-higher').handlers.click();assert.equal(node('soot-escaped').textContent,31);
  node('reveal-cool').handlers.click();assert.equal(saved.inputs.stage,3);assert.equal(saved.inputs.enhance,true);assert(node('flame-canvas').focused);assert.equal(node('flame-canvas').scrollOptions.block,'center');
- engine[2].handlers.click();assert.match(node('engine-diagram').innerHTML,/Distributed ignition/);assert.equal(saved.inputs.engine,2);
+ vm.runInContext(read('engine.js'),c);engine[2].handlers.click();assert.match(node('engine-diagram').innerHTML,/Distributed ignition/);assert.equal(saved.engine,2);
 });

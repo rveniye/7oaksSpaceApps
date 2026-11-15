@@ -5,8 +5,14 @@
   "scripts": {
     "start": "node --env-file-if-exists=.env server/index.js",
     "test": "node --test tests/*.cjs",
-    "test:gemini": "node --env-file-if-exists=.env server/check-gemini.js"
+    "test:gemini": "node --env-file-if-exists=.env server/check-gemini.js",
+    "sync:notes": "node scripts/sync-research-notes.js",
+    "sync:sources": "node scripts/sync-sources.js"
   },
-  "engines": { "node": ">=22" },
-  "dependencies": { "@google/genai": "^1.0.0" }
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
 }

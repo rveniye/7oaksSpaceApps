@@ -7,7 +7,7 @@ function harness(){
  node('transport').getContext=()=>ctx;
  const document={hidden:false,activeElement:null,getElementById:node,querySelector:node,querySelectorAll:s=>s==='[data-method]'?methods:presets,addEventListener(){},createElement:node};
  const sandbox={document,localStorage:{getItem(){return null;},setItem(){}},matchMedia:()=>({matches:false,addEventListener(){}}),devicePixelRatio:1,requestAnimationFrame:()=>1,cancelAnimationFrame(){},IntersectionObserver:class{observe(){}},ResizeObserver:class{observe(){}},location:{protocol:'file:'},setTimeout,clearTimeout,AbortSignal};sandbox.window=sandbox;
- vm.createContext(sandbox);for(const file of ['detect-state.js','detect.js'])vm.runInContext(fs.readFileSync(new URL('../dist/'+file,'file://'+__filename),'utf8'),sandbox);
+ vm.createContext(sandbox);for(const file of ['detect-state.js','research-definitions.js','detect.js'])vm.runInContext(fs.readFileSync(new URL('../dist/'+file,'file://'+__filename),'utf8'),sandbox);
  return {sandbox,node,methods,vm:code=>vm.runInContext(code,sandbox)};
 }
 test('Detect initialises diagrams, calculator and floating assistant; commands operate controls',()=>{
