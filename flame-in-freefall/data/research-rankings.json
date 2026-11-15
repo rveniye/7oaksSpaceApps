@@ -1,0 +1,1877 @@
+{
+  "version": 1,
+  "scope": "The 12 investigation families in the project catalogue. Supporting physics, ventilation, instrument and flamelet references are not separate catalogue investigations. No raw PSI run files were imported.",
+  "method": "Reading-priority ranking: direct topic match = 3, related = 1, background = 0. Scores are authored relevance judgments, not measured performance, safety or research quality. Equal scores share competition ranks; alphabetical order only arranges ties.",
+  "pages": {
+    "understand": [
+      {
+        "id": "cfig",
+        "name": "ACME · CFI-G",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Explores oxygen-rich conditions, but an inverse burner is different from a crew cabin atmosphere.",
+        "calculation": "Understand: 3 (direct)",
+        "objective": "Investigate cool flames with gaseous fuels in an inverse flame arrangement.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA identifies CFI-G as the gaseous-fuel cool-flame investigation; it is separate from droplet CFI.",
+        "limits": "The 85% oxygen figure and detailed inverse-burner configuration from the challenge brief were not independently checked in this audit. They are not imported as verified conditions.",
+        "sources": [
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Sixth experiment: CFIG"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "Gaseous-fuel cool-flame experiment"
+          }
+        ]
+      },
+      {
+        "id": "efield",
+        "name": "ACME · E-FIELD Flames",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Useful for studying transport effects. Electrically driven flow does not provide direct lunar-gravity combustion data.",
+        "calculation": "Understand: 3 (direct)",
+        "objective": "Study how an electric field moves ions and changes gas flow around a flame.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Electric fields act on flame ions and induced gas motion; the research concerns control of non-premixed flames.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn E-FIELD Flames",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "E-FIELD Flames paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cfi",
+        "name": "Cool Flames Investigation (CFI)",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Helps explain why disappearance of a visible hot flame may not mean all combustion has stopped.",
+        "calculation": "Understand: 3 (direct)",
+        "objective": "Investigate lower-temperature combustion of droplets.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "CFI concerns cool-flame chemistry; NASA operations groups it under MDCA. NASA connects the later gas experiment to the earlier FLEX droplet observations.",
+        "limits": "No CFI dataset identifier, temperatures or species measurements imported. CFI and CFI-G remain separate.",
+        "sources": [
+          {
+            "title": "NASA Glenn CFI overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/mdca/cfi/",
+            "kind": "Agency experiment overview",
+            "locator": "CFI Overview and MDCA navigation"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "FLEX discovery and subsequent gaseous-fuel work"
+          }
+        ]
+      },
+      {
+        "id": "daft",
+        "name": "DAFT / DAFT-2",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Useful for understanding shared sensing hardware and non-fire aerosols; not a combustion investigation.",
+        "calculation": "Understand: 3 (direct)",
+        "objective": "Assess aerosol measurements for dust detection.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA’s PSI index lists DAFT and DAFT-2. NASA’s DAFT description links its modified P-Trak instrument to SAME.",
+        "limits": "Instrument relationship is described at overview level. DAFT-2-specific settings and smoke/dust calibration are not checked.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: DAFT and DAFT-2"
+          },
+          {
+            "title": "NASA DAFT description",
+            "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+            "kind": "Agency experiment summary",
+            "locator": "Opening paragraph: modified P-Trak and SAME"
+          }
+        ]
+      },
+      {
+        "id": "spice",
+        "name": "SPICE / SLICE",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Provides related transport and soot research using hardware also used by BASS.",
+        "calculation": "Understand: 3 (direct)",
+        "objective": "Study smoke-point behaviour (SPICE) and flame structure and liftoff (SLICE).",
+        "sourceStatus": "Identity checked only",
+        "checkedScope": "NASA’s PSI index lists SPICE and SLICE as separate combustion investigations.",
+        "limits": "This checks investigation identity only. Shared duct hardware, sample conditions and numerical findings still need investigation-specific sources.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: SPICE and SLICE"
+          }
+        ]
+      },
+      {
+        "id": "bre",
+        "name": "ACME · Burning Rate Emulator",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Relevant to solid-material flammability questions despite using a gaseous-fuel burner.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Study material flammability in still atmospheres as a function of material properties.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BRE addresses material flammability and test-method relevance; NASA describes its gaseous-fuel approach.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Burning Rate Emulator",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Burning Rate Emulator paragraph"
+          }
+        ]
+      },
+      {
+        "id": "flamedesign",
+        "name": "ACME · Flame Design",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Connects combustion research to lower-soot combustion systems on Earth.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Study flame conditions that affect soot production.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Flame Design studies soot inception and control in oxygen-enriched non-premixed combustion.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Flame Design",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/flame-design/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Flame Design paragraph"
+          }
+        ]
+      },
+      {
+        "id": "bass",
+        "name": "BASS / BASS-II",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Directly relevant to material flammability and ventilation around exposed solids.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Study how solid fuels burn and how flow affects burning and suppression.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BASS-II studies solid-fuel burning in MSG; oxygen, airflow and sample geometry are test variables. The report identifies imaging and gas measurements.",
+        "limits": "BASS-II record only; BASS-I runs are not individually checked. No numerical run files or calibration have been imported.",
+        "sources": [
+          {
+            "title": "BASS-II · PSI-25 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-25",
+            "version": 4,
+            "doi": "10.60555/4qc4-de67"
+          },
+          {
+            "title": "BASS-II Summary Report",
+            "url": "https://ntrs.nasa.gov/citations/20210011385",
+            "kind": "Technical memorandum",
+            "locator": "Abstract: apparatus, variables and measurement instruments"
+          },
+          {
+            "title": "BASS-II preliminary results",
+            "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20160000593.pdf",
+            "kind": "Conference abstract",
+            "locator": "Wind-tunnel capability description"
+          }
+        ]
+      },
+      {
+        "id": "flex",
+        "name": "FLEX / FLEX-2",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Direct evidence about extinction mechanisms. Droplet results need care when applied to burning solid materials.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Study droplet combustion and flame extinction, including atmosphere dilution in FLEX.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "FLEX studies droplet combustion limits and gaseous suppression. The repository and operations overview agree on the extinction and limiting-oxygen objectives.",
+        "limits": "Direct record is FLEX, not FLEX-2. No raw extinction measurements or complete run matrix is loaded. The Understand physics section separately cites published LOI summary values.",
+        "sources": [
+          {
+            "title": "FLEX · PSI-69 v5",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-69",
+            "version": 5,
+            "doi": "10.60555/mbq8-0451"
+          },
+          {
+            "title": "NASA Glenn FLEX operations overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/flex/",
+            "kind": "Agency experiment overview",
+            "locator": "FLEX Overview and MDCA navigation"
+          }
+        ]
+      },
+      {
+        "id": "saffire",
+        "name": "Saffire-I / II / III",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Relevant to fire spread in crew-sized environments and to the limits of small-sample tests.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Study solid-material fire behaviour at a larger scale than small laboratory samples.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Saffire I–III investigate large-scale material flame spread and flammability. Saffire-I was conducted in Cygnus after departure from ISS.",
+        "limits": "Direct repository link covers Saffire-I, not the full I–III family. Measurements and sample dimensions have not been imported.",
+        "sources": [
+          {
+            "title": "Saffire-I · PSI-98 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-98",
+            "version": 4,
+            "doi": "10.60555/0t15-1z43"
+          },
+          {
+            "title": "Operation and Development Status of Saffire",
+            "url": "https://ntrs.nasa.gov/api/citations/20170000230/downloads/20170000230.pdf",
+            "kind": "Research paper",
+            "locator": "Abstract and Saffire-I apparatus discussion"
+          },
+          {
+            "title": "NASA Saffire-I flight report",
+            "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+            "kind": "Agency mission report",
+            "locator": "15 June 2016: completed experiment aboard departed Cygnus"
+          }
+        ]
+      },
+      {
+        "id": "same",
+        "name": "SAME / SAME-R",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Directly informs how different smoke sources affect a detector’s signal.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Characterise smoke and investigate fire detection in microgravity.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SAME examined material-dependent smoke and detector response. SAME-R is a reflight with changed materials, conditions and instrumentation.",
+        "limits": "The repository record is SAME-R; the publication covers spacecraft detector testing. Do not merge the two test matrices. No response curves or detector specifications are imported.",
+        "sources": [
+          {
+            "title": "SAME-R · PSI-101 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-101",
+            "version": 4,
+            "doi": "10.60555/2np7-jv14"
+          },
+          {
+            "title": "Evaluation of spacecraft smoke detector performance",
+            "url": "https://www.nist.gov/publications/evaluation-spacecraft-smoke-detector-performance-low-gravity-environment",
+            "kind": "Publication abstract",
+            "locator": "Abstract: controlled conditions, instruments and detection limitations"
+          },
+          {
+            "title": "NIST/NASA explanation of SAME results",
+            "url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+            "kind": "Agency research account",
+            "locator": "Methods and material-dependent detector response"
+          }
+        ]
+      },
+      {
+        "id": "sofie",
+        "name": "SoFIE",
+        "rank": 6,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Relevant to material screening and the effects of installation conditions.",
+        "calculation": "Understand: 1 (related)",
+        "objective": "Study solid-fuel ignition, flame spread and extinction.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SoFIE studies solid-fuel fire behaviour. SoFIE-GEL specifically varies flow, oxygen, pressure and heating for flame growth and extinction studies.",
+        "limits": "SoFIE is a facility/programme, not one uniform dataset. SoFIE-GEL conditions do not describe every SoFIE investigation.",
+        "sources": [
+          {
+            "title": "NASA SoFIE mission page",
+            "url": "https://science.nasa.gov/mission/sofie/",
+            "kind": "Agency programme overview",
+            "locator": "Mission description"
+          },
+          {
+            "title": "NASA SoFIE-GEL investigation",
+            "url": "https://science.nasa.gov/biological-physical/investigations/sofie-gel/",
+            "kind": "Agency investigation overview",
+            "locator": "Experiment description: PMMA sphere and varied conditions"
+          }
+        ]
+      }
+    ],
+    "prevent": [
+      {
+        "id": "bre",
+        "name": "ACME · Burning Rate Emulator",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Relevant to solid-material flammability questions despite using a gaseous-fuel burner.",
+        "calculation": "Prevent: 3 (direct)",
+        "objective": "Study material flammability in still atmospheres as a function of material properties.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BRE addresses material flammability and test-method relevance; NASA describes its gaseous-fuel approach.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Burning Rate Emulator",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Burning Rate Emulator paragraph"
+          }
+        ]
+      },
+      {
+        "id": "bass",
+        "name": "BASS / BASS-II",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Directly relevant to material flammability and ventilation around exposed solids.",
+        "calculation": "Prevent: 3 (direct)",
+        "objective": "Study how solid fuels burn and how flow affects burning and suppression.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BASS-II studies solid-fuel burning in MSG; oxygen, airflow and sample geometry are test variables. The report identifies imaging and gas measurements.",
+        "limits": "BASS-II record only; BASS-I runs are not individually checked. No numerical run files or calibration have been imported.",
+        "sources": [
+          {
+            "title": "BASS-II · PSI-25 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-25",
+            "version": 4,
+            "doi": "10.60555/4qc4-de67"
+          },
+          {
+            "title": "BASS-II Summary Report",
+            "url": "https://ntrs.nasa.gov/citations/20210011385",
+            "kind": "Technical memorandum",
+            "locator": "Abstract: apparatus, variables and measurement instruments"
+          },
+          {
+            "title": "BASS-II preliminary results",
+            "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20160000593.pdf",
+            "kind": "Conference abstract",
+            "locator": "Wind-tunnel capability description"
+          }
+        ]
+      },
+      {
+        "id": "saffire",
+        "name": "Saffire-I / II / III",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Relevant to fire spread in crew-sized environments and to the limits of small-sample tests.",
+        "calculation": "Prevent: 3 (direct)",
+        "objective": "Study solid-material fire behaviour at a larger scale than small laboratory samples.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Saffire I–III investigate large-scale material flame spread and flammability. Saffire-I was conducted in Cygnus after departure from ISS.",
+        "limits": "Direct repository link covers Saffire-I, not the full I–III family. Measurements and sample dimensions have not been imported.",
+        "sources": [
+          {
+            "title": "Saffire-I · PSI-98 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-98",
+            "version": 4,
+            "doi": "10.60555/0t15-1z43"
+          },
+          {
+            "title": "Operation and Development Status of Saffire",
+            "url": "https://ntrs.nasa.gov/api/citations/20170000230/downloads/20170000230.pdf",
+            "kind": "Research paper",
+            "locator": "Abstract and Saffire-I apparatus discussion"
+          },
+          {
+            "title": "NASA Saffire-I flight report",
+            "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+            "kind": "Agency mission report",
+            "locator": "15 June 2016: completed experiment aboard departed Cygnus"
+          }
+        ]
+      },
+      {
+        "id": "sofie",
+        "name": "SoFIE",
+        "rank": 1,
+        "tied": true,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Relevant to material screening and the effects of installation conditions.",
+        "calculation": "Prevent: 3 (direct)",
+        "objective": "Study solid-fuel ignition, flame spread and extinction.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SoFIE studies solid-fuel fire behaviour. SoFIE-GEL specifically varies flow, oxygen, pressure and heating for flame growth and extinction studies.",
+        "limits": "SoFIE is a facility/programme, not one uniform dataset. SoFIE-GEL conditions do not describe every SoFIE investigation.",
+        "sources": [
+          {
+            "title": "NASA SoFIE mission page",
+            "url": "https://science.nasa.gov/mission/sofie/",
+            "kind": "Agency programme overview",
+            "locator": "Mission description"
+          },
+          {
+            "title": "NASA SoFIE-GEL investigation",
+            "url": "https://science.nasa.gov/biological-physical/investigations/sofie-gel/",
+            "kind": "Agency investigation overview",
+            "locator": "Experiment description: PMMA sphere and varied conditions"
+          }
+        ]
+      },
+      {
+        "id": "cfig",
+        "name": "ACME · CFI-G",
+        "rank": 5,
+        "tied": false,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Explores oxygen-rich conditions, but an inverse burner is different from a crew cabin atmosphere.",
+        "calculation": "Prevent: 1 (related)",
+        "objective": "Investigate cool flames with gaseous fuels in an inverse flame arrangement.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA identifies CFI-G as the gaseous-fuel cool-flame investigation; it is separate from droplet CFI.",
+        "limits": "The 85% oxygen figure and detailed inverse-burner configuration from the challenge brief were not independently checked in this audit. They are not imported as verified conditions.",
+        "sources": [
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Sixth experiment: CFIG"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "Gaseous-fuel cool-flame experiment"
+          }
+        ]
+      },
+      {
+        "id": "efield",
+        "name": "ACME · E-FIELD Flames",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Useful for studying transport effects. Electrically driven flow does not provide direct lunar-gravity combustion data.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Study how an electric field moves ions and changes gas flow around a flame.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Electric fields act on flame ions and induced gas motion; the research concerns control of non-premixed flames.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn E-FIELD Flames",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "E-FIELD Flames paragraph"
+          }
+        ]
+      },
+      {
+        "id": "flamedesign",
+        "name": "ACME · Flame Design",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Connects combustion research to lower-soot combustion systems on Earth.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Study flame conditions that affect soot production.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Flame Design studies soot inception and control in oxygen-enriched non-premixed combustion.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Flame Design",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/flame-design/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Flame Design paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cfi",
+        "name": "Cool Flames Investigation (CFI)",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Helps explain why disappearance of a visible hot flame may not mean all combustion has stopped.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Investigate lower-temperature combustion of droplets.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "CFI concerns cool-flame chemistry; NASA operations groups it under MDCA. NASA connects the later gas experiment to the earlier FLEX droplet observations.",
+        "limits": "No CFI dataset identifier, temperatures or species measurements imported. CFI and CFI-G remain separate.",
+        "sources": [
+          {
+            "title": "NASA Glenn CFI overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/mdca/cfi/",
+            "kind": "Agency experiment overview",
+            "locator": "CFI Overview and MDCA navigation"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "FLEX discovery and subsequent gaseous-fuel work"
+          }
+        ]
+      },
+      {
+        "id": "daft",
+        "name": "DAFT / DAFT-2",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Useful for understanding shared sensing hardware and non-fire aerosols; not a combustion investigation.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Assess aerosol measurements for dust detection.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA’s PSI index lists DAFT and DAFT-2. NASA’s DAFT description links its modified P-Trak instrument to SAME.",
+        "limits": "Instrument relationship is described at overview level. DAFT-2-specific settings and smoke/dust calibration are not checked.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: DAFT and DAFT-2"
+          },
+          {
+            "title": "NASA DAFT description",
+            "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+            "kind": "Agency experiment summary",
+            "locator": "Opening paragraph: modified P-Trak and SAME"
+          }
+        ]
+      },
+      {
+        "id": "flex",
+        "name": "FLEX / FLEX-2",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Direct evidence about extinction mechanisms. Droplet results need care when applied to burning solid materials.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Study droplet combustion and flame extinction, including atmosphere dilution in FLEX.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "FLEX studies droplet combustion limits and gaseous suppression. The repository and operations overview agree on the extinction and limiting-oxygen objectives.",
+        "limits": "Direct record is FLEX, not FLEX-2. No raw extinction measurements or complete run matrix is loaded. The Understand physics section separately cites published LOI summary values.",
+        "sources": [
+          {
+            "title": "FLEX · PSI-69 v5",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-69",
+            "version": 5,
+            "doi": "10.60555/mbq8-0451"
+          },
+          {
+            "title": "NASA Glenn FLEX operations overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/flex/",
+            "kind": "Agency experiment overview",
+            "locator": "FLEX Overview and MDCA navigation"
+          }
+        ]
+      },
+      {
+        "id": "same",
+        "name": "SAME / SAME-R",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Directly informs how different smoke sources affect a detector’s signal.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Characterise smoke and investigate fire detection in microgravity.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SAME examined material-dependent smoke and detector response. SAME-R is a reflight with changed materials, conditions and instrumentation.",
+        "limits": "The repository record is SAME-R; the publication covers spacecraft detector testing. Do not merge the two test matrices. No response curves or detector specifications are imported.",
+        "sources": [
+          {
+            "title": "SAME-R · PSI-101 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-101",
+            "version": 4,
+            "doi": "10.60555/2np7-jv14"
+          },
+          {
+            "title": "Evaluation of spacecraft smoke detector performance",
+            "url": "https://www.nist.gov/publications/evaluation-spacecraft-smoke-detector-performance-low-gravity-environment",
+            "kind": "Publication abstract",
+            "locator": "Abstract: controlled conditions, instruments and detection limitations"
+          },
+          {
+            "title": "NIST/NASA explanation of SAME results",
+            "url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+            "kind": "Agency research account",
+            "locator": "Methods and material-dependent detector response"
+          }
+        ]
+      },
+      {
+        "id": "spice",
+        "name": "SPICE / SLICE",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Provides related transport and soot research using hardware also used by BASS.",
+        "calculation": "Prevent: 0 (background)",
+        "objective": "Study smoke-point behaviour (SPICE) and flame structure and liftoff (SLICE).",
+        "sourceStatus": "Identity checked only",
+        "checkedScope": "NASA’s PSI index lists SPICE and SLICE as separate combustion investigations.",
+        "limits": "This checks investigation identity only. Shared duct hardware, sample conditions and numerical findings still need investigation-specific sources.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: SPICE and SLICE"
+          }
+        ]
+      }
+    ],
+    "detect": [
+      {
+        "id": "same",
+        "name": "SAME / SAME-R",
+        "rank": 1,
+        "tied": false,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Directly informs how different smoke sources affect a detector’s signal.",
+        "calculation": "Detect: 3 (direct)",
+        "objective": "Characterise smoke and investigate fire detection in microgravity.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SAME examined material-dependent smoke and detector response. SAME-R is a reflight with changed materials, conditions and instrumentation.",
+        "limits": "The repository record is SAME-R; the publication covers spacecraft detector testing. Do not merge the two test matrices. No response curves or detector specifications are imported.",
+        "sources": [
+          {
+            "title": "SAME-R · PSI-101 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-101",
+            "version": 4,
+            "doi": "10.60555/2np7-jv14"
+          },
+          {
+            "title": "Evaluation of spacecraft smoke detector performance",
+            "url": "https://www.nist.gov/publications/evaluation-spacecraft-smoke-detector-performance-low-gravity-environment",
+            "kind": "Publication abstract",
+            "locator": "Abstract: controlled conditions, instruments and detection limitations"
+          },
+          {
+            "title": "NIST/NASA explanation of SAME results",
+            "url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+            "kind": "Agency research account",
+            "locator": "Methods and material-dependent detector response"
+          }
+        ]
+      },
+      {
+        "id": "daft",
+        "name": "DAFT / DAFT-2",
+        "rank": 2,
+        "tied": false,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Useful for understanding shared sensing hardware and non-fire aerosols; not a combustion investigation.",
+        "calculation": "Detect: 1 (related)",
+        "objective": "Assess aerosol measurements for dust detection.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA’s PSI index lists DAFT and DAFT-2. NASA’s DAFT description links its modified P-Trak instrument to SAME.",
+        "limits": "Instrument relationship is described at overview level. DAFT-2-specific settings and smoke/dust calibration are not checked.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: DAFT and DAFT-2"
+          },
+          {
+            "title": "NASA DAFT description",
+            "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+            "kind": "Agency experiment summary",
+            "locator": "Opening paragraph: modified P-Trak and SAME"
+          }
+        ]
+      },
+      {
+        "id": "bre",
+        "name": "ACME · Burning Rate Emulator",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to solid-material flammability questions despite using a gaseous-fuel burner.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study material flammability in still atmospheres as a function of material properties.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BRE addresses material flammability and test-method relevance; NASA describes its gaseous-fuel approach.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Burning Rate Emulator",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Burning Rate Emulator paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cfig",
+        "name": "ACME · CFI-G",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Explores oxygen-rich conditions, but an inverse burner is different from a crew cabin atmosphere.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Investigate cool flames with gaseous fuels in an inverse flame arrangement.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA identifies CFI-G as the gaseous-fuel cool-flame investigation; it is separate from droplet CFI.",
+        "limits": "The 85% oxygen figure and detailed inverse-burner configuration from the challenge brief were not independently checked in this audit. They are not imported as verified conditions.",
+        "sources": [
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Sixth experiment: CFIG"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "Gaseous-fuel cool-flame experiment"
+          }
+        ]
+      },
+      {
+        "id": "efield",
+        "name": "ACME · E-FIELD Flames",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Useful for studying transport effects. Electrically driven flow does not provide direct lunar-gravity combustion data.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study how an electric field moves ions and changes gas flow around a flame.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Electric fields act on flame ions and induced gas motion; the research concerns control of non-premixed flames.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn E-FIELD Flames",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "E-FIELD Flames paragraph"
+          }
+        ]
+      },
+      {
+        "id": "flamedesign",
+        "name": "ACME · Flame Design",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Connects combustion research to lower-soot combustion systems on Earth.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study flame conditions that affect soot production.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Flame Design studies soot inception and control in oxygen-enriched non-premixed combustion.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Flame Design",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/flame-design/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Flame Design paragraph"
+          }
+        ]
+      },
+      {
+        "id": "bass",
+        "name": "BASS / BASS-II",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Directly relevant to material flammability and ventilation around exposed solids.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study how solid fuels burn and how flow affects burning and suppression.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BASS-II studies solid-fuel burning in MSG; oxygen, airflow and sample geometry are test variables. The report identifies imaging and gas measurements.",
+        "limits": "BASS-II record only; BASS-I runs are not individually checked. No numerical run files or calibration have been imported.",
+        "sources": [
+          {
+            "title": "BASS-II · PSI-25 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-25",
+            "version": 4,
+            "doi": "10.60555/4qc4-de67"
+          },
+          {
+            "title": "BASS-II Summary Report",
+            "url": "https://ntrs.nasa.gov/citations/20210011385",
+            "kind": "Technical memorandum",
+            "locator": "Abstract: apparatus, variables and measurement instruments"
+          },
+          {
+            "title": "BASS-II preliminary results",
+            "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20160000593.pdf",
+            "kind": "Conference abstract",
+            "locator": "Wind-tunnel capability description"
+          }
+        ]
+      },
+      {
+        "id": "cfi",
+        "name": "Cool Flames Investigation (CFI)",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Helps explain why disappearance of a visible hot flame may not mean all combustion has stopped.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Investigate lower-temperature combustion of droplets.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "CFI concerns cool-flame chemistry; NASA operations groups it under MDCA. NASA connects the later gas experiment to the earlier FLEX droplet observations.",
+        "limits": "No CFI dataset identifier, temperatures or species measurements imported. CFI and CFI-G remain separate.",
+        "sources": [
+          {
+            "title": "NASA Glenn CFI overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/mdca/cfi/",
+            "kind": "Agency experiment overview",
+            "locator": "CFI Overview and MDCA navigation"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "FLEX discovery and subsequent gaseous-fuel work"
+          }
+        ]
+      },
+      {
+        "id": "flex",
+        "name": "FLEX / FLEX-2",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Direct evidence about extinction mechanisms. Droplet results need care when applied to burning solid materials.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study droplet combustion and flame extinction, including atmosphere dilution in FLEX.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "FLEX studies droplet combustion limits and gaseous suppression. The repository and operations overview agree on the extinction and limiting-oxygen objectives.",
+        "limits": "Direct record is FLEX, not FLEX-2. No raw extinction measurements or complete run matrix is loaded. The Understand physics section separately cites published LOI summary values.",
+        "sources": [
+          {
+            "title": "FLEX · PSI-69 v5",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-69",
+            "version": 5,
+            "doi": "10.60555/mbq8-0451"
+          },
+          {
+            "title": "NASA Glenn FLEX operations overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/flex/",
+            "kind": "Agency experiment overview",
+            "locator": "FLEX Overview and MDCA navigation"
+          }
+        ]
+      },
+      {
+        "id": "saffire",
+        "name": "Saffire-I / II / III",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to fire spread in crew-sized environments and to the limits of small-sample tests.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study solid-material fire behaviour at a larger scale than small laboratory samples.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Saffire I–III investigate large-scale material flame spread and flammability. Saffire-I was conducted in Cygnus after departure from ISS.",
+        "limits": "Direct repository link covers Saffire-I, not the full I–III family. Measurements and sample dimensions have not been imported.",
+        "sources": [
+          {
+            "title": "Saffire-I · PSI-98 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-98",
+            "version": 4,
+            "doi": "10.60555/0t15-1z43"
+          },
+          {
+            "title": "Operation and Development Status of Saffire",
+            "url": "https://ntrs.nasa.gov/api/citations/20170000230/downloads/20170000230.pdf",
+            "kind": "Research paper",
+            "locator": "Abstract and Saffire-I apparatus discussion"
+          },
+          {
+            "title": "NASA Saffire-I flight report",
+            "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+            "kind": "Agency mission report",
+            "locator": "15 June 2016: completed experiment aboard departed Cygnus"
+          }
+        ]
+      },
+      {
+        "id": "sofie",
+        "name": "SoFIE",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to material screening and the effects of installation conditions.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study solid-fuel ignition, flame spread and extinction.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SoFIE studies solid-fuel fire behaviour. SoFIE-GEL specifically varies flow, oxygen, pressure and heating for flame growth and extinction studies.",
+        "limits": "SoFIE is a facility/programme, not one uniform dataset. SoFIE-GEL conditions do not describe every SoFIE investigation.",
+        "sources": [
+          {
+            "title": "NASA SoFIE mission page",
+            "url": "https://science.nasa.gov/mission/sofie/",
+            "kind": "Agency programme overview",
+            "locator": "Mission description"
+          },
+          {
+            "title": "NASA SoFIE-GEL investigation",
+            "url": "https://science.nasa.gov/biological-physical/investigations/sofie-gel/",
+            "kind": "Agency investigation overview",
+            "locator": "Experiment description: PMMA sphere and varied conditions"
+          }
+        ]
+      },
+      {
+        "id": "spice",
+        "name": "SPICE / SLICE",
+        "rank": 3,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Provides related transport and soot research using hardware also used by BASS.",
+        "calculation": "Detect: 0 (background)",
+        "objective": "Study smoke-point behaviour (SPICE) and flame structure and liftoff (SLICE).",
+        "sourceStatus": "Identity checked only",
+        "checkedScope": "NASA’s PSI index lists SPICE and SLICE as separate combustion investigations.",
+        "limits": "This checks investigation identity only. Shared duct hardware, sample conditions and numerical findings still need investigation-specific sources.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: SPICE and SLICE"
+          }
+        ]
+      }
+    ],
+    "suppress": [
+      {
+        "id": "flex",
+        "name": "FLEX / FLEX-2",
+        "rank": 1,
+        "tied": false,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Direct evidence about extinction mechanisms. Droplet results need care when applied to burning solid materials.",
+        "calculation": "Suppress: 3 (direct)",
+        "objective": "Study droplet combustion and flame extinction, including atmosphere dilution in FLEX.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "FLEX studies droplet combustion limits and gaseous suppression. The repository and operations overview agree on the extinction and limiting-oxygen objectives.",
+        "limits": "Direct record is FLEX, not FLEX-2. No raw extinction measurements or complete run matrix is loaded. The Understand physics section separately cites published LOI summary values.",
+        "sources": [
+          {
+            "title": "FLEX · PSI-69 v5",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-69",
+            "version": 5,
+            "doi": "10.60555/mbq8-0451"
+          },
+          {
+            "title": "NASA Glenn FLEX operations overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/flex/",
+            "kind": "Agency experiment overview",
+            "locator": "FLEX Overview and MDCA navigation"
+          }
+        ]
+      },
+      {
+        "id": "efield",
+        "name": "ACME · E-FIELD Flames",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Useful for studying transport effects. Electrically driven flow does not provide direct lunar-gravity combustion data.",
+        "calculation": "Suppress: 1 (related)",
+        "objective": "Study how an electric field moves ions and changes gas flow around a flame.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Electric fields act on flame ions and induced gas motion; the research concerns control of non-premixed flames.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn E-FIELD Flames",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "E-FIELD Flames paragraph"
+          }
+        ]
+      },
+      {
+        "id": "bass",
+        "name": "BASS / BASS-II",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Directly relevant to material flammability and ventilation around exposed solids.",
+        "calculation": "Suppress: 1 (related)",
+        "objective": "Study how solid fuels burn and how flow affects burning and suppression.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BASS-II studies solid-fuel burning in MSG; oxygen, airflow and sample geometry are test variables. The report identifies imaging and gas measurements.",
+        "limits": "BASS-II record only; BASS-I runs are not individually checked. No numerical run files or calibration have been imported.",
+        "sources": [
+          {
+            "title": "BASS-II · PSI-25 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-25",
+            "version": 4,
+            "doi": "10.60555/4qc4-de67"
+          },
+          {
+            "title": "BASS-II Summary Report",
+            "url": "https://ntrs.nasa.gov/citations/20210011385",
+            "kind": "Technical memorandum",
+            "locator": "Abstract: apparatus, variables and measurement instruments"
+          },
+          {
+            "title": "BASS-II preliminary results",
+            "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20160000593.pdf",
+            "kind": "Conference abstract",
+            "locator": "Wind-tunnel capability description"
+          }
+        ]
+      },
+      {
+        "id": "cfi",
+        "name": "Cool Flames Investigation (CFI)",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Helps explain why disappearance of a visible hot flame may not mean all combustion has stopped.",
+        "calculation": "Suppress: 1 (related)",
+        "objective": "Investigate lower-temperature combustion of droplets.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "CFI concerns cool-flame chemistry; NASA operations groups it under MDCA. NASA connects the later gas experiment to the earlier FLEX droplet observations.",
+        "limits": "No CFI dataset identifier, temperatures or species measurements imported. CFI and CFI-G remain separate.",
+        "sources": [
+          {
+            "title": "NASA Glenn CFI overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/mdca/cfi/",
+            "kind": "Agency experiment overview",
+            "locator": "CFI Overview and MDCA navigation"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "FLEX discovery and subsequent gaseous-fuel work"
+          }
+        ]
+      },
+      {
+        "id": "saffire",
+        "name": "Saffire-I / II / III",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Relevant to fire spread in crew-sized environments and to the limits of small-sample tests.",
+        "calculation": "Suppress: 1 (related)",
+        "objective": "Study solid-material fire behaviour at a larger scale than small laboratory samples.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Saffire I–III investigate large-scale material flame spread and flammability. Saffire-I was conducted in Cygnus after departure from ISS.",
+        "limits": "Direct repository link covers Saffire-I, not the full I–III family. Measurements and sample dimensions have not been imported.",
+        "sources": [
+          {
+            "title": "Saffire-I · PSI-98 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-98",
+            "version": 4,
+            "doi": "10.60555/0t15-1z43"
+          },
+          {
+            "title": "Operation and Development Status of Saffire",
+            "url": "https://ntrs.nasa.gov/api/citations/20170000230/downloads/20170000230.pdf",
+            "kind": "Research paper",
+            "locator": "Abstract and Saffire-I apparatus discussion"
+          },
+          {
+            "title": "NASA Saffire-I flight report",
+            "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+            "kind": "Agency mission report",
+            "locator": "15 June 2016: completed experiment aboard departed Cygnus"
+          }
+        ]
+      },
+      {
+        "id": "bre",
+        "name": "ACME · Burning Rate Emulator",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to solid-material flammability questions despite using a gaseous-fuel burner.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Study material flammability in still atmospheres as a function of material properties.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BRE addresses material flammability and test-method relevance; NASA describes its gaseous-fuel approach.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Burning Rate Emulator",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Burning Rate Emulator paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cfig",
+        "name": "ACME · CFI-G",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Explores oxygen-rich conditions, but an inverse burner is different from a crew cabin atmosphere.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Investigate cool flames with gaseous fuels in an inverse flame arrangement.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA identifies CFI-G as the gaseous-fuel cool-flame investigation; it is separate from droplet CFI.",
+        "limits": "The 85% oxygen figure and detailed inverse-burner configuration from the challenge brief were not independently checked in this audit. They are not imported as verified conditions.",
+        "sources": [
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Sixth experiment: CFIG"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "Gaseous-fuel cool-flame experiment"
+          }
+        ]
+      },
+      {
+        "id": "flamedesign",
+        "name": "ACME · Flame Design",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Connects combustion research to lower-soot combustion systems on Earth.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Study flame conditions that affect soot production.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Flame Design studies soot inception and control in oxygen-enriched non-premixed combustion.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Flame Design",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/flame-design/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Flame Design paragraph"
+          }
+        ]
+      },
+      {
+        "id": "daft",
+        "name": "DAFT / DAFT-2",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Useful for understanding shared sensing hardware and non-fire aerosols; not a combustion investigation.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Assess aerosol measurements for dust detection.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA’s PSI index lists DAFT and DAFT-2. NASA’s DAFT description links its modified P-Trak instrument to SAME.",
+        "limits": "Instrument relationship is described at overview level. DAFT-2-specific settings and smoke/dust calibration are not checked.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: DAFT and DAFT-2"
+          },
+          {
+            "title": "NASA DAFT description",
+            "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+            "kind": "Agency experiment summary",
+            "locator": "Opening paragraph: modified P-Trak and SAME"
+          }
+        ]
+      },
+      {
+        "id": "same",
+        "name": "SAME / SAME-R",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Directly informs how different smoke sources affect a detector’s signal.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Characterise smoke and investigate fire detection in microgravity.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SAME examined material-dependent smoke and detector response. SAME-R is a reflight with changed materials, conditions and instrumentation.",
+        "limits": "The repository record is SAME-R; the publication covers spacecraft detector testing. Do not merge the two test matrices. No response curves or detector specifications are imported.",
+        "sources": [
+          {
+            "title": "SAME-R · PSI-101 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-101",
+            "version": 4,
+            "doi": "10.60555/2np7-jv14"
+          },
+          {
+            "title": "Evaluation of spacecraft smoke detector performance",
+            "url": "https://www.nist.gov/publications/evaluation-spacecraft-smoke-detector-performance-low-gravity-environment",
+            "kind": "Publication abstract",
+            "locator": "Abstract: controlled conditions, instruments and detection limitations"
+          },
+          {
+            "title": "NIST/NASA explanation of SAME results",
+            "url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+            "kind": "Agency research account",
+            "locator": "Methods and material-dependent detector response"
+          }
+        ]
+      },
+      {
+        "id": "sofie",
+        "name": "SoFIE",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to material screening and the effects of installation conditions.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Study solid-fuel ignition, flame spread and extinction.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SoFIE studies solid-fuel fire behaviour. SoFIE-GEL specifically varies flow, oxygen, pressure and heating for flame growth and extinction studies.",
+        "limits": "SoFIE is a facility/programme, not one uniform dataset. SoFIE-GEL conditions do not describe every SoFIE investigation.",
+        "sources": [
+          {
+            "title": "NASA SoFIE mission page",
+            "url": "https://science.nasa.gov/mission/sofie/",
+            "kind": "Agency programme overview",
+            "locator": "Mission description"
+          },
+          {
+            "title": "NASA SoFIE-GEL investigation",
+            "url": "https://science.nasa.gov/biological-physical/investigations/sofie-gel/",
+            "kind": "Agency investigation overview",
+            "locator": "Experiment description: PMMA sphere and varied conditions"
+          }
+        ]
+      },
+      {
+        "id": "spice",
+        "name": "SPICE / SLICE",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Provides related transport and soot research using hardware also used by BASS.",
+        "calculation": "Suppress: 0 (background)",
+        "objective": "Study smoke-point behaviour (SPICE) and flame structure and liftoff (SLICE).",
+        "sourceStatus": "Identity checked only",
+        "checkedScope": "NASA’s PSI index lists SPICE and SLICE as separate combustion investigations.",
+        "limits": "This checks investigation identity only. Shared duct hardware, sample conditions and numerical findings still need investigation-specific sources.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: SPICE and SLICE"
+          }
+        ]
+      }
+    ],
+    "applications": [
+      {
+        "id": "flamedesign",
+        "name": "ACME · Flame Design",
+        "rank": 1,
+        "tied": false,
+        "score": 3,
+        "maxScore": 3,
+        "relevance": "Direct",
+        "reason": "Connects combustion research to lower-soot combustion systems on Earth.",
+        "calculation": "Applications: 3 (direct)",
+        "objective": "Study flame conditions that affect soot production.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Flame Design studies soot inception and control in oxygen-enriched non-premixed combustion.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Flame Design",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/flame-design/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Flame Design paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cfi",
+        "name": "Cool Flames Investigation (CFI)",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Helps explain why disappearance of a visible hot flame may not mean all combustion has stopped.",
+        "calculation": "Applications: 1 (related)",
+        "objective": "Investigate lower-temperature combustion of droplets.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "CFI concerns cool-flame chemistry; NASA operations groups it under MDCA. NASA connects the later gas experiment to the earlier FLEX droplet observations.",
+        "limits": "No CFI dataset identifier, temperatures or species measurements imported. CFI and CFI-G remain separate.",
+        "sources": [
+          {
+            "title": "NASA Glenn CFI overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/mdca/cfi/",
+            "kind": "Agency experiment overview",
+            "locator": "CFI Overview and MDCA navigation"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "FLEX discovery and subsequent gaseous-fuel work"
+          }
+        ]
+      },
+      {
+        "id": "flex",
+        "name": "FLEX / FLEX-2",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Direct evidence about extinction mechanisms. Droplet results need care when applied to burning solid materials.",
+        "calculation": "Applications: 1 (related)",
+        "objective": "Study droplet combustion and flame extinction, including atmosphere dilution in FLEX.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "FLEX studies droplet combustion limits and gaseous suppression. The repository and operations overview agree on the extinction and limiting-oxygen objectives.",
+        "limits": "Direct record is FLEX, not FLEX-2. No raw extinction measurements or complete run matrix is loaded. The Understand physics section separately cites published LOI summary values.",
+        "sources": [
+          {
+            "title": "FLEX · PSI-69 v5",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-69",
+            "version": 5,
+            "doi": "10.60555/mbq8-0451"
+          },
+          {
+            "title": "NASA Glenn FLEX operations overview",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/flex/",
+            "kind": "Agency experiment overview",
+            "locator": "FLEX Overview and MDCA navigation"
+          }
+        ]
+      },
+      {
+        "id": "sofie",
+        "name": "SoFIE",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Relevant to material screening and the effects of installation conditions.",
+        "calculation": "Applications: 1 (related)",
+        "objective": "Study solid-fuel ignition, flame spread and extinction.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SoFIE studies solid-fuel fire behaviour. SoFIE-GEL specifically varies flow, oxygen, pressure and heating for flame growth and extinction studies.",
+        "limits": "SoFIE is a facility/programme, not one uniform dataset. SoFIE-GEL conditions do not describe every SoFIE investigation.",
+        "sources": [
+          {
+            "title": "NASA SoFIE mission page",
+            "url": "https://science.nasa.gov/mission/sofie/",
+            "kind": "Agency programme overview",
+            "locator": "Mission description"
+          },
+          {
+            "title": "NASA SoFIE-GEL investigation",
+            "url": "https://science.nasa.gov/biological-physical/investigations/sofie-gel/",
+            "kind": "Agency investigation overview",
+            "locator": "Experiment description: PMMA sphere and varied conditions"
+          }
+        ]
+      },
+      {
+        "id": "spice",
+        "name": "SPICE / SLICE",
+        "rank": 2,
+        "tied": true,
+        "score": 1,
+        "maxScore": 3,
+        "relevance": "Related",
+        "reason": "Provides related transport and soot research using hardware also used by BASS.",
+        "calculation": "Applications: 1 (related)",
+        "objective": "Study smoke-point behaviour (SPICE) and flame structure and liftoff (SLICE).",
+        "sourceStatus": "Identity checked only",
+        "checkedScope": "NASA’s PSI index lists SPICE and SLICE as separate combustion investigations.",
+        "limits": "This checks investigation identity only. Shared duct hardware, sample conditions and numerical findings still need investigation-specific sources.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: SPICE and SLICE"
+          }
+        ]
+      },
+      {
+        "id": "bre",
+        "name": "ACME · Burning Rate Emulator",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to solid-material flammability questions despite using a gaseous-fuel burner.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Study material flammability in still atmospheres as a function of material properties.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BRE addresses material flammability and test-method relevance; NASA describes its gaseous-fuel approach.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn Burning Rate Emulator",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Burning Rate Emulator paragraph"
+          }
+        ]
+      },
+      {
+        "id": "cfig",
+        "name": "ACME · CFI-G",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Explores oxygen-rich conditions, but an inverse burner is different from a crew cabin atmosphere.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Investigate cool flames with gaseous fuels in an inverse flame arrangement.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA identifies CFI-G as the gaseous-fuel cool-flame investigation; it is separate from droplet CFI.",
+        "limits": "The 85% oxygen figure and detailed inverse-burner configuration from the challenge brief were not independently checked in this audit. They are not imported as verified conditions.",
+        "sources": [
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "Sixth experiment: CFIG"
+          },
+          {
+            "title": "Cool flames created on ISS",
+            "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+            "kind": "Agency research account",
+            "locator": "Gaseous-fuel cool-flame experiment"
+          }
+        ]
+      },
+      {
+        "id": "efield",
+        "name": "ACME · E-FIELD Flames",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Useful for studying transport effects. Electrically driven flow does not provide direct lunar-gravity combustion data.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Study how an electric field moves ions and changes gas flow around a flame.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Electric fields act on flame ions and induced gas motion; the research concerns control of non-premixed flames.",
+        "limits": "Overview claims only. No raw run data, apparatus settings or performance guarantees imported.",
+        "sources": [
+          {
+            "title": "NASA Glenn E-FIELD Flames",
+            "url": "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
+            "kind": "Agency experiment overview",
+            "locator": "Experiment Overview"
+          },
+          {
+            "title": "NASA ACME experiment account",
+            "url": "https://science.nasa.gov/science-research/biological-physical-sciences/a-thousand-points-of-light-on-the-international-space-station/",
+            "kind": "Agency research account",
+            "locator": "E-FIELD Flames paragraph"
+          }
+        ]
+      },
+      {
+        "id": "bass",
+        "name": "BASS / BASS-II",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Directly relevant to material flammability and ventilation around exposed solids.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Study how solid fuels burn and how flow affects burning and suppression.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "BASS-II studies solid-fuel burning in MSG; oxygen, airflow and sample geometry are test variables. The report identifies imaging and gas measurements.",
+        "limits": "BASS-II record only; BASS-I runs are not individually checked. No numerical run files or calibration have been imported.",
+        "sources": [
+          {
+            "title": "BASS-II · PSI-25 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-25",
+            "version": 4,
+            "doi": "10.60555/4qc4-de67"
+          },
+          {
+            "title": "BASS-II Summary Report",
+            "url": "https://ntrs.nasa.gov/citations/20210011385",
+            "kind": "Technical memorandum",
+            "locator": "Abstract: apparatus, variables and measurement instruments"
+          },
+          {
+            "title": "BASS-II preliminary results",
+            "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20160000593.pdf",
+            "kind": "Conference abstract",
+            "locator": "Wind-tunnel capability description"
+          }
+        ]
+      },
+      {
+        "id": "daft",
+        "name": "DAFT / DAFT-2",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Useful for understanding shared sensing hardware and non-fire aerosols; not a combustion investigation.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Assess aerosol measurements for dust detection.",
+        "sourceStatus": "Partial check",
+        "checkedScope": "NASA’s PSI index lists DAFT and DAFT-2. NASA’s DAFT description links its modified P-Trak instrument to SAME.",
+        "limits": "Instrument relationship is described at overview level. DAFT-2-specific settings and smoke/dust calibration are not checked.",
+        "sources": [
+          {
+            "title": "NASA PSI research-area index",
+            "url": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+            "kind": "Repository index",
+            "locator": "Combustion Science: DAFT and DAFT-2"
+          },
+          {
+            "title": "NASA DAFT description",
+            "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+            "kind": "Agency experiment summary",
+            "locator": "Opening paragraph: modified P-Trak and SAME"
+          }
+        ]
+      },
+      {
+        "id": "saffire",
+        "name": "Saffire-I / II / III",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Relevant to fire spread in crew-sized environments and to the limits of small-sample tests.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Study solid-material fire behaviour at a larger scale than small laboratory samples.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "Saffire I–III investigate large-scale material flame spread and flammability. Saffire-I was conducted in Cygnus after departure from ISS.",
+        "limits": "Direct repository link covers Saffire-I, not the full I–III family. Measurements and sample dimensions have not been imported.",
+        "sources": [
+          {
+            "title": "Saffire-I · PSI-98 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-98",
+            "version": 4,
+            "doi": "10.60555/0t15-1z43"
+          },
+          {
+            "title": "Operation and Development Status of Saffire",
+            "url": "https://ntrs.nasa.gov/api/citations/20170000230/downloads/20170000230.pdf",
+            "kind": "Research paper",
+            "locator": "Abstract and Saffire-I apparatus discussion"
+          },
+          {
+            "title": "NASA Saffire-I flight report",
+            "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+            "kind": "Agency mission report",
+            "locator": "15 June 2016: completed experiment aboard departed Cygnus"
+          }
+        ]
+      },
+      {
+        "id": "same",
+        "name": "SAME / SAME-R",
+        "rank": 6,
+        "tied": true,
+        "score": 0,
+        "maxScore": 3,
+        "relevance": "Background",
+        "reason": "Directly informs how different smoke sources affect a detector’s signal.",
+        "calculation": "Applications: 0 (background)",
+        "objective": "Characterise smoke and investigate fire detection in microgravity.",
+        "sourceStatus": "Summary checked",
+        "checkedScope": "SAME examined material-dependent smoke and detector response. SAME-R is a reflight with changed materials, conditions and instrumentation.",
+        "limits": "The repository record is SAME-R; the publication covers spacecraft detector testing. Do not merge the two test matrices. No response curves or detector specifications are imported.",
+        "sources": [
+          {
+            "title": "SAME-R · PSI-101 v4",
+            "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+            "kind": "Repository metadata",
+            "locator": "Record heading, DOI, Objectives and Approach",
+            "recordId": "PSI-101",
+            "version": 4,
+            "doi": "10.60555/2np7-jv14"
+          },
+          {
+            "title": "Evaluation of spacecraft smoke detector performance",
+            "url": "https://www.nist.gov/publications/evaluation-spacecraft-smoke-detector-performance-low-gravity-environment",
+            "kind": "Publication abstract",
+            "locator": "Abstract: controlled conditions, instruments and detection limitations"
+          },
+          {
+            "title": "NIST/NASA explanation of SAME results",
+            "url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+            "kind": "Agency research account",
+            "locator": "Methods and material-dependent detector response"
+          }
+        ]
+      }
+    ]
+  }
+}

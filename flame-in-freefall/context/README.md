@@ -47,3 +47,7 @@ The original-note reader sections are intentionally absent from the website. Edi
 ## Sources and numerical data
 
 The [source register](../data/source-provenance.json) connects catalogue descriptions to primary references, dated checks and unresolved discrepancies. The backend includes it in the assistant context. [Verification instructions](../data/README.md) explain the checks required before importing actual run measurements. All pages show readable source links; internal citation codes remain hidden from chat.
+
+## Investigation rankings
+
+Understand, Prevent, Detect, Suppress and Applications each end with `#research-ranking`. Rankings cover all 12 families in the investigation finder, using its same 3/1/0 relevance scores and shared ranks for ties. `data/research-rankings.json` supplies the AI context; `dist/research-rankings-data.js` supplies the page displays. Both are generated with `npm run sync:rankings` from the catalogue and source register. Supporting reference records are not counted as additional experimental investigations.

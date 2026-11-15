@@ -7,8 +7,9 @@
     "test": "node --test tests/*.cjs",
     "test:gemini": "node --env-file-if-exists=.env server/check-gemini.js",
     "sync:notes": "node scripts/sync-research-notes.js && node scripts/sync-glossary.js",
-    "sync:sources": "node scripts/sync-sources.js",
-    "sync:glossary": "node scripts/sync-glossary.js"
+    "sync:sources": "node scripts/sync-sources.js && node scripts/sync-rankings.js",
+    "sync:glossary": "node scripts/sync-glossary.js",
+    "sync:rankings": "node scripts/sync-rankings.js"
   },
   "engines": {
     "node": ">=22"

@@ -2,7 +2,7 @@
 (() => {
  const pages={home:'index.html',understand:'understand.html',prevent:'prevent.html',detect:'detect.html',suppress:'suppress.html',applications:'earth.html'};
  const sections={home:['top','research','investigations','investigation-comparison','research-status'],understand:['shape','chemistry','arrhenius','radical-reactions','thermal-decomposition','heat-balance','droplet-physics','extinction-limits','flamelets','flames','soot'],prevent:['materials','ventilation','environments','missing-data'],detect:['workspace','methods','calculations','comparison','evidence'],suppress:['extinction','ventilation','mechanisms','approaches'],applications:['findings','transfer','sources']};
- for(const values of Object.values(sections))values.push('research-sources');
+ for(const [page,values] of Object.entries(sections)){values.push('research-sources');if(page!=='home')values.push('research-ranking');}
  const controls={
   home:{},understand:{scene:['earth','microgravity','ventilation'],front:['continuous','fragmented'],stage:{min:0,max:3,step:1},enhance:'boolean',formation:['low','medium','high'],oxidation:['low','medium','high']},
   prevent:{scene:['cooling','supply','transport']},suppress:{scene:['mist','ionic','acoustic']},applications:{engine:{min:0,max:2,step:1}},

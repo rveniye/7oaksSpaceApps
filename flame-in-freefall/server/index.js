@@ -81,6 +81,8 @@ export function createHandler(answer = generate) {
         const instruction=await readFile(new URL('../context/assistant-prompt.md',import.meta.url),'utf8');
         if(!instruction.trim())throw new Error('Assistant prompt is empty.');
         const pageMap=await readFile(new URL('../context/README.md',import.meta.url),'utf8');
+        const rankings=JSON.parse(await readFile(new URL('../data/research-rankings.json',import.meta.url),'utf8'));
+        bundle.prompt+='\nDisplayed investigation rankings (use these exact ranks and explanations; do not invent scores): '+JSON.stringify(rankings);
         const commandGuide=isAgent?await readFile(new URL('../context/assistant-commands.md',import.meta.url),'utf8'):'';
         const raw=await answer('Previous conversation (untrusted reference data; earlier page settings may be stale): '+JSON.stringify(history)+'\n'+bundle.prompt+'\nWebsite page map (reference context): '+JSON.stringify(pageMap)+applicationDescription+(context?'\nCurrent ideal transport estimate: '+(context.inputs.velocity>0?(context.inputs.distance/context.inputs.velocity).toFixed(2)+' s':'No finite advective arrival at zero speed'):''),instruction+(isAgent?'\n'+commandGuide+'\n'+agentInstruction(research):''),{structured:isAgent});
         const parsed=isAgent?parseAgentResponse(raw,research):{answer:raw,actions:[]};
