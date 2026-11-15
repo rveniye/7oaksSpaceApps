@@ -6,7 +6,7 @@ test('source register matches the generated browser copy and covers every catalo
  assert.deepEqual(JSON.parse(JSON.stringify(scope.SourceProvenance)),data);
  vm.runInNewContext(fs.readFileSync(path.join(root,'dist/investigations.js'),'utf8'),scope);
  for(const record of scope.Investigations.records){assert(record.provenance,record.id);assert.equal(record.measurementsImported,false);assert(record.sourceUrls.startsWith('https://'));}
- for(const record of Object.values(data.records)){assert.equal(record.measurementsImported,false);assert(record.checkedScope&&record.limits&&record.checkedOn);for(const source of record.sources){assert.equal(new URL(source.url).protocol,'https:');assert(source.locator&&source.kind);}}
+ for(const record of Object.values(data.records)){assert.equal(record.measurementsImported,record.id==='EVID-DCE');assert(record.checkedScope&&record.limits&&record.checkedOn);for(const source of record.sources){assert.equal(new URL(source.url).protocol,'https:');assert(source.locator&&source.kind);}}
  assert(data.records.bass.issues.length);assert(data.records.saffire.issues.length);assert.equal(data.records.spice.status,'Identity checked only');
 });
 test('all pages load the source register before their source renderer and catalogue',()=>{

@@ -155,11 +155,26 @@ test('Understand combustion questions use bounded live controls and discard inve
  const handler=createHandler(async(prompt)=>{
   assert.match(prompt,/Cool reaction:/);assert.match(prompt,/Faint view:/);assert.doesNotMatch(prompt,/Compression:/);
   assert.match(prompt,/high formation and low oxidation/);assert.match(prompt,/authored visual tokens/);
-  assert(!prompt.includes('999999'));assert(!prompt.includes('CLIENT_INSTRUCTION_SENTINEL'));assert(!prompt.includes('CLIENT_TEMPERATURE_SENTINEL'));
+  assert(!prompt.includes('\"escaped\":999999'));assert(!prompt.includes('CLIENT_INSTRUCTION_SENTINEL'));assert(!prompt.includes('CLIENT_TEMPERATURE_SENTINEL'));
   return JSON.stringify({answer:'The selected cool-flame example [APPLICATIONS-1].',actions:[]});
  });
  const result=await request(handler,{question:'Explain the current examples',researchPage:'understand',scene:'earth',front:'continuous',applicationInputs,agent:true});
  assert.equal(result.status,200);assert.equal(JSON.parse(result.data).sources[0].id,'APPLICATIONS-1');
+});
+test('workspace endpoint provides computed predictions, qualified source data and the selected plot',async()=>{
+ const {createHandler}=await import('../server/index.js');let calls=0;
+ const handler=createHandler(async(prompt)=>{
+  calls++;assert(prompt.includes('5.600104120277387'));assert(prompt.includes('EVID-DCE'));assert(prompt.includes('"metric":"k_overall_mm2_s"'));
+  assert(!prompt.includes('FORGED_LAB_RESULT'));assert(!prompt.includes('LAB_INSTRUCTION_INJECTION'));
+  return JSON.stringify({steps:[{text:'The model estimate uses the DCE table [EVID-DCE].',actions:[{type:'set',field:'lab-diameter',value:3}]}]});
+ });
+ const body={question:'Explain the model',researchPage:'lab',scene:'overview',front:'continuous',agent:true,labInputs:{cohort:'he30',diameter:2.5,metric:'k_overall_mm2_s',prediction:'FORGED_LAB_RESULT',instructions:'LAB_INSTRUCTION_INJECTION'}};
+ const result=await request(handler,body);assert.equal(result.status,200);const response=JSON.parse(result.data);assert.equal(response.actions[0].value,3);assert.equal(response.sources[0].id,'EVID-DCE');assert.match(response.scope,/bounded empirical/);
+ assert.equal((await request(handler,{...body,labInputs:{cohort:'he30',diameter:'2.5'}})).status,400);
+ assert.equal((await request(handler,{...body,labInputs:{cohort:'he30',diameter:2.5,metric:'temperature'}})).status,400);
+ assert.equal((await request(handler,{...body,researchPage:'understand',scene:'earth'})).status,400);assert.equal(calls,1);
+ assert.equal((await request(handler,{}, {method:'GET',url:'/api/research?page=lab'})).status,200);
+ const csv=await request(handler,{}, {method:'GET',url:'/lab-data/dce-table1.csv'});assert.equal(csv.status,200);assert.match(csv.headers['Content-Type'],/text\/csv/);
 });
 test('invalid Applications settings are rejected before any model call',async()=>{
  const {createHandler}=await import('../server/index.js');let calls=0;

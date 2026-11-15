@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { validateApplicationInputs } from './applications-context.js';
+import { validateLabInputs } from './lab-context.js';
 
 const pages = {
   understand: { scenes: ['earth', 'microgravity', 'ventilation'], files: ['fires-in-microgravity.md', 'physics-of-combustion.md', 'flamelets.md'] },
@@ -7,7 +8,8 @@ const pages = {
   detect: { scenes: [], files: ['laser-diode.md', 'brunswick-fire.md', 'multi-angle-optical-sensors.md'] },
   suppress: { scenes: ['mist', 'ionic', 'acoustic'], files: ['fire-water-mist.md', 'electric-field-driven-ionic-wind.md', 'acoustic-fire-suppression.md', 'ventilation-and-flamelets.md'] },
   applications: { scenes: ['overview'], files: ['applications.md'] },
-  experiments: { scenes: ['overview'], files: ['experiments.md'] }
+  experiments: { scenes: ['overview'], files: ['experiments.md'] },
+  lab: { scenes: ['overview'], files: ['research-workspace.md'] }
 };
 
 // Annotations accompany the original draft; they never rewrite the source.
@@ -50,6 +52,10 @@ export function validateResearch(body) {
     throw new Error('Invalid research scenario.');
   }
   const state = { page, scene: body.scene, front: body.front };
+  if (body.labInputs !== undefined) {
+    if (page !== 'lab') throw new Error('Model settings require the research workspace.');
+    state.labInputs = validateLabInputs(body.labInputs);
+  }
   if (body.applicationInputs !== undefined) {
     if (!['applications', 'understand'].includes(page)) throw new Error('Demonstration inputs are only available on Understand or Applications.');
     state.applicationInputs = validateApplicationInputs(body.applicationInputs);

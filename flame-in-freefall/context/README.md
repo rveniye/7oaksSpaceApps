@@ -11,6 +11,7 @@ This index connects the website's research areas and the Markdown used by the Ge
 | [Prevent](../dist/prevent.html) | Materials (`#materials`), ventilation (`#ventilation`), crew environments (`#environments`), missing data (`#missing-data`) | [Materials and ventilation](prevent/materials-and-ventilation.md) |
 | [Detect](../dist/detect.html) | Smoke transport (`#workspace`), sensing principles (`#methods`), ideal travel time (`#calculations`), draft detector ratings (`#comparison`), evidence (`#evidence`) | [Laser diode](detect/laser-diode.md), [Brunswick detector](detect/brunswick-fire.md), [Multi-angle optical sensors](detect/multi-angle-optical-sensors.md) |
 | [Suppress](../dist/suppress.html) | FLEX extinction (`#extinction`), ventilation and flamelets (`#ventilation`), suppression mechanisms (`#mechanisms`), research approaches (`#approaches`) | [Ventilation and flamelets](suppress/ventilation-and-flamelets.md), [Fine water mist](suppress/fire-water-mist.md), [Ionic wind](suppress/electric-field-driven-ionic-wind.md), [Acoustic forcing](suppress/acoustic-fire-suppression.md) |
+| [Data & models](../dist/lab.html) | Published DCE data (`#data`), predictive model (`#model`), withheld-test checks (`#validation`), future equipment (`#equipment`), provenance (`#provenance`) | [Workspace methods and evidence](lab/research-workspace.md) |
 | [Applications](../dist/earth.html) | Brief factual references to cool flames and soot (`#findings`), HCCI engine illustration and technology transfer (`#transfer`), sources (`#sources`) | [Applications notes](applications/applications.md) |
 
 ## Connections between the pages
@@ -51,3 +52,10 @@ The [source register](../data/source-provenance.json) connects catalogue descrip
 ## Investigation rankings
 
 Understand, Prevent, Detect, Suppress and Applications each end with `#research-ranking`. Rankings cover all 12 families in the investigation finder, using its same 3/1/0 relevance scores and shared ranks for ties. `data/research-rankings.json` supplies the AI context; `dist/research-rankings-data.js` supplies the page displays. Both are generated with `npm run sync:rankings` from the catalogue and source register. Supporting reference records are not counted as additional experimental investigations.
+
+
+## Numerical research workspace
+
+`lab.html` is an additional page. It preserves the established dashboards. The homepage links to it beside the investigation finder. `data/extracted/dce-table1.json` contains 38 published DCE summary rows; `data/originals/20040000941.pdf` preserves the source. `npm run sync:lab` publishes CSV, JSON and the fitted-model audit after checking the original checksum. Re-extraction requires PyMuPDF (`python scripts/extract-dce.py`) and compares the model columns with the saved visual transcription.
+
+The browser and server share `dist/lab-model.js`. Assistant requests on the workspace send only the selected cohort and initial diameter. The server validates these fields, ignores client conclusions and computes the prediction; out-of-domain settings return an explicit unavailable result. It also supplies the extracted rows and model audit for cross-page questions. Use `navigate: lab` to open it. Full methods, source scope, assumptions and equipment connections are in [lab/research-workspace.md](lab/research-workspace.md).

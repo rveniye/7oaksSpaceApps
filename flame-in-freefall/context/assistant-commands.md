@@ -59,3 +59,8 @@ A toggle reverses its current state. For a guided stage-by-stage explanation, us
 ```
 
 Examples explain command structure; cite the supplied research when making scientific claims. Do not copy placeholder sentences as an answer. No commands run merely because they appear in saved conversation history.
+
+
+## Data and predictive modelling workspace
+
+Navigate to `lab`, then use sections `data`, `model`, `validation`, `equipment`, `provenance`. Set `lab-cohort` to `he30` or `he25` BEFORE `lab-diameter`. Diameter accepts hundredths of a millimetre; supported ranges are 1.78–3.87 mm for he30 and 1.61–4.01 mm for he25. Outside the active group's domain the page shows no prediction. `lab-metric` selects `burn_time_s` or `k_overall_mm2_s`. `lab-filter` selects `all`, `eligible` or `excluded`; `equipment-focus` selects `all`, `detect`, `suppress` or `applications`. `lab-reset` restores he30 and 2.5 mm. Exports are not assistant actions. Discuss the model's measured source, fixed atmosphere, error and baseline, with text before the control change and interpretation after it.

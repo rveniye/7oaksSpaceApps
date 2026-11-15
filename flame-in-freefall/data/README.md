@@ -8,7 +8,7 @@
 - Four direct PSI records were inspected in a rendered browser on 2026-11-14: BASS-II (PSI-25 v4), Saffire-I (PSI-98 v4), FLEX (PSI-69 v5), and SAME-R (PSI-101 v4). Their record titles, identifiers, versions and DOIs were checked against the public pages.
 - Research objectives and mechanisms were compared with the specific NASA/NIST reports, publication abstracts or operations pages listed in each record. A second account can corroborate a claim, but these are not necessarily independent experiments.
 - Some checks are deliberately narrow: SPICE/SLICE identity, the CFI-G overview, DAFT's instrument relationship and the CPM abstract. Their limited status is displayed. These entries do not certify every catalogue field.
-- **No raw experimental measurements are imported.** The register connects references and checked descriptions. It is not a PSI mirror, a live data feed or a validated numerical dataset.
+- **The separate research workspace imports 38 published DCE Table 1 summaries.** Original PDF, SHA-256, extracted text and independent visual transcription of the model columns are retained in `originals/` and `extracted/`. These are not raw instrument recordings or a live PSI feed. The original catalogue families still contain descriptions rather than run measurements. See [workspace methods](../context/lab/research-workspace.md).
 
 ## Findings that affect use of the data
 

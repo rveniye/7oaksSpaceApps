@@ -1,0 +1,564 @@
+{
+  "source": {
+    "url": "https://ntrs.nasa.gov/api/citations/20040000941/downloads/20040000941.pdf",
+    "record": "https://ntrs.nasa.gov/citations/20040000941",
+    "report": "NASA/TM—2003-212553 (October 2003)",
+    "sha256": "c507f87555e9979baaaec96a10d0a737daccf827da3d1aaa77df54a749bbd5bf",
+    "file": "20040000941.pdf",
+    "retrieved_on": "2026-11-15",
+    "locator": "Table 1, printed pp. 17–18 / PDF pp. 21–22",
+    "verification": "All 38 rows: automated PDF extraction compared with a separate visual transcription of pressure, atmosphere, diameter, burn time and overall K. Cross-checked against NASA record abstract and report discussion.",
+    "reviewer": "Codex extraction and visual cross-check",
+    "rights": "NTRS public distribution. Numerical facts transcribed; original report retained with attribution. No licence is inferred for other PSI datasets."
+  },
+  "models": {
+    "he30": {
+      "burn_time_s": {
+        "version": "dce-ols-1",
+        "cohort": "he30",
+        "metric": "burn_time_s",
+        "label": "Burn duration",
+        "unit": "s",
+        "power": 2,
+        "domain": {
+          "min": 1.78,
+          "max": 3.87
+        },
+        "coefficients": {
+          "intercept": 1.7530390449123257,
+          "slope": 0.6155304120584099
+        },
+        "training": [
+          "DCE-07",
+          "DCE-08",
+          "DCE-09",
+          "DCE-10",
+          "DCE-11"
+        ],
+        "points": [
+          {
+            "id": "DCE-07",
+            "x": 14.9769,
+            "y": 9.87,
+            "diameter": 3.87
+          },
+          {
+            "id": "DCE-08",
+            "x": 8.6436,
+            "y": 9.47,
+            "diameter": 2.94
+          },
+          {
+            "id": "DCE-09",
+            "x": 3.3124000000000002,
+            "y": 3.37,
+            "diameter": 1.82
+          },
+          {
+            "id": "DCE-10",
+            "x": 3.2761,
+            "y": 3.3,
+            "diameter": 1.81
+          },
+          {
+            "id": "DCE-11",
+            "x": 3.1684,
+            "y": 3.3,
+            "diameter": 1.78
+          }
+        ],
+        "validation": [
+          {
+            "id": "DCE-07",
+            "diameter": 3.87,
+            "observed": 9.87,
+            "predicted": 16.68656565854442,
+            "error": 6.816565658544421,
+            "baseline": 4.86,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-08",
+              "DCE-09",
+              "DCE-10",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-08",
+            "diameter": 2.94,
+            "observed": 9.47,
+            "predicted": 6.333625256663488,
+            "error": -3.1363747433365123,
+            "baseline": 4.96,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-07",
+              "DCE-09",
+              "DCE-10",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-09",
+            "diameter": 1.82,
+            "observed": 3.37,
+            "predicted": 3.9768819194106024,
+            "error": 0.6068819194106023,
+            "baseline": 6.485,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-07",
+              "DCE-08",
+              "DCE-10",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-10",
+            "diameter": 1.81,
+            "observed": 3.3,
+            "predicted": 3.977645881413295,
+            "error": 0.6776458814132953,
+            "baseline": 6.5025,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-07",
+              "DCE-08",
+              "DCE-09",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-11",
+            "diameter": 1.78,
+            "observed": 3.3,
+            "predicted": 3.887824277105179,
+            "error": 0.5878242771051791,
+            "baseline": 6.5025,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-07",
+              "DCE-08",
+              "DCE-09",
+              "DCE-10"
+            ]
+          }
+        ],
+        "mae": 2.3650584959620025,
+        "rmse": 3.3904412955644707,
+        "baselineMAE": 3.808,
+        "beatsBaseline": true
+      },
+      "k_overall_mm2_s": {
+        "version": "dce-ols-1",
+        "cohort": "he30",
+        "metric": "k_overall_mm2_s",
+        "label": "Overall burning constant K",
+        "unit": "mm²/s",
+        "power": 1,
+        "domain": {
+          "min": 1.78,
+          "max": 3.87
+        },
+        "coefficients": {
+          "intercept": 1.3524899479457357,
+          "slope": -0.09758181176175773
+        },
+        "training": [
+          "DCE-07",
+          "DCE-08",
+          "DCE-09",
+          "DCE-10",
+          "DCE-11"
+        ],
+        "points": [
+          {
+            "id": "DCE-07",
+            "x": 3.87,
+            "y": 1,
+            "diameter": 3.87
+          },
+          {
+            "id": "DCE-08",
+            "x": 2.94,
+            "y": 1.02,
+            "diameter": 2.94
+          },
+          {
+            "id": "DCE-09",
+            "x": 1.82,
+            "y": 1.15,
+            "diameter": 1.82
+          },
+          {
+            "id": "DCE-10",
+            "x": 1.81,
+            "y": 1.22,
+            "diameter": 1.81
+          },
+          {
+            "id": "DCE-11",
+            "x": 1.78,
+            "y": 1.18,
+            "diameter": 1.78
+          }
+        ],
+        "validation": [
+          {
+            "id": "DCE-07",
+            "diameter": 3.87,
+            "observed": 1,
+            "predicted": 0.8861636808867123,
+            "error": -0.11383631911328773,
+            "baseline": 1.1424999999999998,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-08",
+              "DCE-09",
+              "DCE-10",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-08",
+            "diameter": 2.94,
+            "observed": 1.02,
+            "predicted": 1.0824697272330066,
+            "error": 0.06246972723300659,
+            "baseline": 1.1375,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-07",
+              "DCE-09",
+              "DCE-10",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-09",
+            "diameter": 1.82,
+            "observed": 1.15,
+            "predicted": 1.18612,
+            "error": 0.03612000000000015,
+            "baseline": 1.105,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-07",
+              "DCE-08",
+              "DCE-10",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-10",
+            "diameter": 1.81,
+            "observed": 1.22,
+            "predicted": 1.1556226998197239,
+            "error": -0.0643773001802761,
+            "baseline": 1.0875,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-07",
+              "DCE-08",
+              "DCE-09",
+              "DCE-11"
+            ]
+          },
+          {
+            "id": "DCE-11",
+            "diameter": 1.78,
+            "observed": 1.18,
+            "predicted": 1.1782123556035937,
+            "error": -0.0017876443964062183,
+            "baseline": 1.0975,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-07",
+              "DCE-08",
+              "DCE-09",
+              "DCE-10"
+            ]
+          }
+        ],
+        "mae": 0.055718198184595356,
+        "rmse": 0.06680338497534075,
+        "baselineMAE": 0.10399999999999995,
+        "beatsBaseline": true
+      }
+    },
+    "he25": {
+      "burn_time_s": {
+        "version": "dce-ols-1",
+        "cohort": "he25",
+        "metric": "burn_time_s",
+        "label": "Burn duration",
+        "unit": "s",
+        "power": 2,
+        "domain": {
+          "min": 1.61,
+          "max": 4.01
+        },
+        "coefficients": {
+          "intercept": 1.3111524100204033,
+          "slope": 0.43110339638934164
+        },
+        "training": [
+          "DCE-12",
+          "DCE-13",
+          "DCE-14",
+          "DCE-15",
+          "DCE-16"
+        ],
+        "points": [
+          {
+            "id": "DCE-12",
+            "x": 16.080099999999998,
+            "y": 8.8,
+            "diameter": 4.01
+          },
+          {
+            "id": "DCE-13",
+            "x": 9.9225,
+            "y": 4.4,
+            "diameter": 3.15
+          },
+          {
+            "id": "DCE-14",
+            "x": 7.5625,
+            "y": 4.8,
+            "diameter": 2.75
+          },
+          {
+            "id": "DCE-15",
+            "x": 2.8223999999999996,
+            "y": 2.83,
+            "diameter": 1.68
+          },
+          {
+            "id": "DCE-16",
+            "x": 2.5921000000000003,
+            "y": 2.53,
+            "diameter": 1.61
+          }
+        ],
+        "validation": [
+          {
+            "id": "DCE-12",
+            "diameter": 4.01,
+            "observed": 8.8,
+            "predicted": 6.582817279657694,
+            "error": -2.217182720342307,
+            "baseline": 3.6399999999999997,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-13",
+              "DCE-14",
+              "DCE-15",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-13",
+            "diameter": 3.15,
+            "observed": 4.4,
+            "predicted": 5.956341602442828,
+            "error": 1.5563416024428278,
+            "baseline": 4.74,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-12",
+              "DCE-14",
+              "DCE-15",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-14",
+            "diameter": 2.75,
+            "observed": 4.8,
+            "predicted": 4.514059036940534,
+            "error": -0.28594096305946604,
+            "baseline": 4.640000000000001,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-12",
+              "DCE-13",
+              "DCE-15",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-15",
+            "diameter": 1.68,
+            "observed": 2.83,
+            "predicted": 2.3282910189896295,
+            "error": -0.5017089810103705,
+            "baseline": 5.1325,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-12",
+              "DCE-13",
+              "DCE-14",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-16",
+            "diameter": 1.61,
+            "observed": 2.53,
+            "predicted": 2.3562169797978125,
+            "error": -0.17378302020218728,
+            "baseline": 5.2075,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-12",
+              "DCE-13",
+              "DCE-14",
+              "DCE-15"
+            ]
+          }
+        ],
+        "mae": 0.9469914574114316,
+        "rmse": 1.2411102346666274,
+        "baselineMAE": 2.128,
+        "beatsBaseline": true
+      },
+      "k_overall_mm2_s": {
+        "version": "dce-ols-1",
+        "cohort": "he25",
+        "metric": "k_overall_mm2_s",
+        "label": "Overall burning constant K",
+        "unit": "mm²/s",
+        "power": 1,
+        "domain": {
+          "min": 1.61,
+          "max": 4.01
+        },
+        "coefficients": {
+          "intercept": 0.9297827476038338,
+          "slope": 0.009173201665214457
+        },
+        "training": [
+          "DCE-12",
+          "DCE-13",
+          "DCE-14",
+          "DCE-15",
+          "DCE-16"
+        ],
+        "points": [
+          {
+            "id": "DCE-12",
+            "x": 4.01,
+            "y": 0.99,
+            "diameter": 4.01
+          },
+          {
+            "id": "DCE-13",
+            "x": 3.15,
+            "y": 0.94,
+            "diameter": 3.15
+          },
+          {
+            "id": "DCE-14",
+            "x": 2.75,
+            "y": 0.93,
+            "diameter": 2.75
+          },
+          {
+            "id": "DCE-15",
+            "x": 1.68,
+            "y": 0.96,
+            "diameter": 1.68
+          },
+          {
+            "id": "DCE-16",
+            "x": 1.61,
+            "y": 0.95,
+            "diameter": 1.61
+          }
+        ],
+        "validation": [
+          {
+            "id": "DCE-12",
+            "diameter": 4.01,
+            "observed": 0.99,
+            "predicted": 0.9222206975734749,
+            "error": -0.06777930242652508,
+            "baseline": 0.9450000000000001,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-13",
+              "DCE-14",
+              "DCE-15",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-13",
+            "diameter": 3.15,
+            "observed": 0.94,
+            "predicted": 0.9653421472622308,
+            "error": 0.02534214726223083,
+            "baseline": 0.9575,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-12",
+              "DCE-14",
+              "DCE-15",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-14",
+            "diameter": 2.75,
+            "observed": 0.93,
+            "predicted": 0.9613761774333623,
+            "error": 0.031376177433362296,
+            "baseline": 0.96,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-12",
+              "DCE-13",
+              "DCE-15",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-15",
+            "diameter": 1.68,
+            "observed": 0.96,
+            "predicted": 0.9343364881192104,
+            "error": -0.025663511880789525,
+            "baseline": 0.9524999999999999,
+            "withinTrainingRange": true,
+            "training": [
+              "DCE-12",
+              "DCE-13",
+              "DCE-14",
+              "DCE-16"
+            ]
+          },
+          {
+            "id": "DCE-16",
+            "diameter": 1.61,
+            "observed": 0.95,
+            "predicted": 0.9399702367691746,
+            "error": -0.010029763230825384,
+            "baseline": 0.955,
+            "withinTrainingRange": false,
+            "training": [
+              "DCE-12",
+              "DCE-13",
+              "DCE-14",
+              "DCE-15"
+            ]
+          }
+        ],
+        "mae": 0.032038180446746625,
+        "rmse": 0.037362908795056674,
+        "baselineMAE": 0.020999999999999998,
+        "beatsBaseline": false
+      }
+    }
+  }
+}

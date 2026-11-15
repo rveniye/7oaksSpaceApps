@@ -486,6 +486,91 @@ globalThis.SourceProvenance = {
       "issues": [
         "Independent original-source content check remains incomplete."
       ]
+    },
+    "dce": {
+      "id": "EVID-DCE",
+      "pages": [
+        "lab"
+      ],
+      "checkedOn": "2026-11-15",
+      "status": "Published table checked",
+      "origin": "Numerical summaries extracted from NASA technical memorandum",
+      "measurementsImported": true,
+      "checkedScope": "All 38 rows: automated PDF extraction compared with a separate visual transcription of pressure, atmosphere, diameter, burn time and overall K. Cross-checked against NASA record abstract and report discussion.",
+      "limits": "Published summaries, not raw imaging. Model columns visually cross-checked; other table columns retain extracted cells for inspection. Two empirical five-test groups only; no independent model validation or cabin safety prediction.",
+      "sources": [
+        {
+          "title": "DCE MSL-1 · NASA/TM—2003-212553",
+          "url": "https://ntrs.nasa.gov/api/citations/20040000941/downloads/20040000941.pdf",
+          "kind": "Technical memorandum / numerical table",
+          "locator": "Table 1, printed pp. 17–18 / PDF pp. 21–22",
+          "recordId": "20040000941",
+          "sha256": "c507f87555e9979baaaec96a10d0a737daccf827da3d1aaa77df54a749bbd5bf"
+        },
+        {
+          "title": "NASA DCE report catalogue record",
+          "url": "https://ntrs.nasa.gov/citations/20040000941",
+          "kind": "Repository metadata",
+          "locator": "Abstract: 38 n-heptane tests, atmospheres, support, imaging; report identity and public-use status"
+        }
+      ],
+      "issues": [
+        "No per-cell burn-time or K uncertainty in Table 1. Approximate diameters and missing outputs are excluded from fitting. Mixed flights and variable drift remain within groups."
+      ],
+      "dataFile": "data/extracted/dce-table1.json"
+    },
+    "lab-equipment": {
+      "id": "EVID-LAB-EQUIPMENT",
+      "pages": [
+        "lab"
+      ],
+      "checkedOn": "2026-11-15",
+      "status": "Source scopes checked",
+      "origin": "Equipment research connections",
+      "measurementsImported": false,
+      "checkedScope": "Mist record cross-checked against Tech Brief PDF pp. 24–25; SAME publication abstract cross-checked against NIST account; E-FIELD objectives compared with experiment description. CPM record identity and abstract only.",
+      "limits": "Design questions are interpretation. No comparison of equipment performance, inferred deployment status or TRL. CPM linked full text unavailable; abstract-only scope.",
+      "sources": [
+        {
+          "title": "Fine-Water-Mist Multiple-Orientation-Discharge Fire Extinguisher",
+          "url": "https://ntrs.nasa.gov/citations/20100001376",
+          "kind": "NASA Tech Brief record",
+          "locator": "Abstract: proof-of-concept, orientation and water/nitrogen design"
+        },
+        {
+          "title": "Water-mist Tech Brief original",
+          "url": "https://ntrs.nasa.gov/api/citations/20100001376/downloads/20100001376.pdf",
+          "kind": "Original Tech Brief",
+          "locator": "pp. 24–25: extinguisher subsection"
+        },
+        {
+          "title": "NIST spacecraft detector performance",
+          "url": "https://www.nist.gov/publications/evaluation-spacecraft-smoke-detector-performance-low-gravity-environment",
+          "kind": "Publication abstract",
+          "locator": "2018 abstract: five materials, two detectors, missed smoke types"
+        },
+        {
+          "title": "NIST associated SAME account",
+          "url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+          "kind": "Research account",
+          "locator": "Methods and results describing SAME, May 2018"
+        },
+        {
+          "title": "Saffire CPM instrument",
+          "url": "https://ntrs.nasa.gov/citations/20210012108",
+          "kind": "Preprint record and abstract",
+          "locator": "2019 abstract: six gas channels; development scope"
+        },
+        {
+          "title": "E-FIELD Flames",
+          "url": "https://science.nasa.gov/biological-physical/investigations/e-field-flames/",
+          "kind": "NASA investigation overview",
+          "locator": "Science Objectives, Experiment Description and Earth Applications"
+        }
+      ],
+      "issues": [
+        "CPM full text could not be inspected; no quantitative detection limits imported."
+      ]
     }
   }
 };

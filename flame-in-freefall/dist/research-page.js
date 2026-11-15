@@ -18,6 +18,12 @@
       engine: Number(engine?.dataset.engine || 0)
     };
   }
+  const labInputs = () => page === 'lab' ? window.LabWorkspace?.inputs() : undefined;
+  let labFingerprint = JSON.stringify(labInputs());
+  document.addEventListener('labstatechange', () => {
+    const next = JSON.stringify(labInputs());
+    if (next !== labFingerprint) { revision++; labFingerprint = next; markEarlierAnswer(); }
+  });
   let applicationFingerprint = JSON.stringify(applicationInputs());
   function markEarlierAnswer() {
     if ($('ai-result') && !$('ai-result').hidden) {
@@ -116,11 +122,12 @@
     const chatTicket = window.AssistantChat?.begin(question);
     const sentRevision = revision;
     const sentApplicationInputs = applicationInputs();
+    const sentLabInputs = labInputs();
     try {
       if (location.protocol === 'file:' && !window.SEVENOAKS_API_BASE) throw Error('The research assistant needs the local server. Open this page at http://localhost:4173 after running npm start.');
       const response = await fetch((window.SEVENOAKS_API_BASE || '').replace(/\/$/, '') + '/api/ask', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question, researchPage: page, scene, front, agent: true, applicationInputs: sentApplicationInputs, history: chatTicket?.history }),
+        body: JSON.stringify({ question, researchPage: page, scene, front, agent: true, applicationInputs: sentApplicationInputs, labInputs: sentLabInputs, history: chatTicket?.history }),
         signal: AbortSignal.timeout(60000)
       });
       if (!response.headers.get('content-type')?.includes('application/json')) throw Error('The research assistant is not connected. Please check the backend connection.');

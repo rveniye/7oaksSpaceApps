@@ -2,7 +2,7 @@
 const actionSchema={type:'object',additionalProperties:false,required:['type'],properties:{
  type:{type:'string',enum:['set','click','scroll','navigate']},
  field:{type:'string'},value:{anyOf:[{type:'string'},{type:'number'},{type:'boolean'}]},
- button:{type:'string'},page:{type:'string',enum:['home','understand','prevent','detect','suppress','applications']},section:{type:'string'}
+ button:{type:'string'},page:{type:'string',enum:['home','understand','prevent','detect','suppress','applications','lab']},section:{type:'string'}
 }};
 export const agentResponseSchema={type:'object',additionalProperties:false,required:['steps'],properties:{
  steps:{type:'array',minItems:1,maxItems:8,items:{type:'object',additionalProperties:false,required:['text','actions'],properties:{
